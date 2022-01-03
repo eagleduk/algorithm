@@ -19,6 +19,11 @@ body {
 header {
   height: 80px;
   background-color: #e2e2e2e2;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 main {
@@ -32,6 +37,11 @@ main div {
   flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+article {
+  height: 80px;
+  background-color: antiquewhite;
 }
 
 section {
@@ -113,4 +123,8 @@ ul.main-menu li span {
 .main-menu li.selected > span::after {
   content: "🔽";
   float: right;
+}
+
+span#title {
+  text-transform: capitalize;
 }
