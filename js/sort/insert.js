@@ -1,3 +1,26 @@
+const controllers = [
+  {
+    type: "button",
+    text: "render",
+    events: [
+      {
+        event: "click",
+        action: render,
+      },
+    ],
+  },
+  {
+    type: "button",
+    text: "play",
+    events: [
+      {
+        event: "click",
+        action: insertSort,
+      },
+    ],
+  },
+];
+
 async function insertSort() {
   const section = document.querySelector("section");
 
@@ -23,19 +46,5 @@ async function insertSort() {
 }
 
 export default () => {
-  const render1 = document.createElement("input");
-  render1.type = "button";
-  render1.value = "render1";
-  render1.addEventListener("click", render);
-
-  const play = document.createElement("input");
-  play.type = "button";
-  play.value = "play";
-  play.addEventListener("click", insertSort);
-
-  const control = document.querySelector("article");
-  control.appendChild(render1);
-  control.appendChild(play);
-
-  render();
+  renderModule(controllers);
 };
