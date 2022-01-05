@@ -1,6 +1,7 @@
 import("../index.js");
 
-const SIZE = 17;
+const TREEDEPTH = 5;
+const LENGTH = 17;
 const SWAPTIME = 1000;
 
 async function loadModule() {
@@ -24,7 +25,7 @@ function render(isSort = false) {
   while (svg.hasChildNodes()) svg.removeChild(svg.firstChild);
 
   const arr = [];
-  for (let i = 0; i < SIZE; i++) {
+  for (let i = 0; i < LENGTH; i++) {
     arr.push(parseInt(Math.random() * 99, 0) + 1);
   }
 
@@ -62,8 +63,11 @@ function render1() {
 
   while (svg.hasChildNodes()) svg.removeChild(svg.firstChild);
 
+  let parents = [];
+
   const width = svg.clientWidth;
   const g1 = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  const g2 = document.createElementNS("http://www.w3.org/2000/svg", "g");
 
   const circle1 = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -87,14 +91,17 @@ function render1() {
   g1.appendChild(text1);
 
   svg.appendChild(g1);
+  parents.push({ x: width / 2, y: 40 });
 
-  for (let i = 1; i < 4; i++) {
+  for (let i = 1; i < TREEDEPTH; i++) {
     let ww = width / Math.pow(2, i + 1);
     let hh = 40 + 70 * i;
-    for (let i2 = 0; i2 < Math.pow(2, i); i2++) {
-      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    let temp = [];
 
-      const circle = document.createElementNS(
+    for (let i2 = 0; i2 < Math.pow(2, i); i2++) {
+      let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+
+      let circle = document.createElementNS(
         "http://www.w3.org/2000/svg",
         "circle"
       );
@@ -105,10 +112,7 @@ function render1() {
       circle.setAttribute("stroke-width", 5);
       circle.setAttribute("stroke", "black");
 
-      const text = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "text"
-      );
+      let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
       text.setAttribute("x", ww * (i2 * 2 + 1));
       text.setAttribute("y", hh);
       text.setAttribute("text-anchor", "middle");
@@ -119,6 +123,20 @@ function render1() {
       g.appendChild(text);
 
       svg.appendChild(g);
+
+      let parentIndex = Math.floor(i2 / 2);
+      let { x, y } = parents[parentIndex];
+      let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", `M${x} ${y} L${ww * (i2 * 2 + 1)} ${hh}`);
+      path.setAttribute("stroke-width", 2);
+      path.setAttribute("stroke", "blue");
+
+      g2.appendChild(path);
+
+      temp.push({ x: ww * (i2 * 2 + 1), y: hh });
     }
+    parents = temp;
   }
+
+  svg.appendChild(g2);
 }
