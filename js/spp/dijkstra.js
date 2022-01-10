@@ -246,8 +246,6 @@ const connections = [
   },
 ];
 
-const html = ``;
-
 function render() {
   const svg = document.querySelector("svg#dijkstra");
   const lineGroup = document.querySelector("g#lineGroup");

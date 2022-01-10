@@ -15,6 +15,9 @@
 
     <main>
         <nav>
+            <a href="/">
+                Algorithm
+            </a>
             <ul class="main-menu">
                 <li>
                     <span>
@@ -88,17 +91,17 @@
                     </ul>
                 </li>
 
-                <li>
+                <li class="selected">
                     <span>MST</span>
                     <ul class="sub-menu">
                         <li>
-                            <a href="/html/mst.html#kruskal">
+                            <a href="#kruskal">
                                 <span>kruskal</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/html/mst.html#prim">
+                            <a href="#prim">
                                 <span>prim</span>
                             </a>
                         </li>
@@ -111,18 +114,22 @@
 
         <div>
             <header>
-                header
+                <h1>
+                    Search > <span id="title">bubble</span> Search
+                </h1>
             </header>
-            <div>
-                <section></section>
-            </div>
+            <article></article>
+            <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="paths"></g>
+                <g id="nodes"></g>
+            </svg>
         </div>
     </main>
 
     <footer>
         footer
     </footer>
-    <script src="js/index.js"></script>
+    <script src="/js/mst/mst.js"></script>
 </body>
 
 </html>
