@@ -273,9 +273,11 @@ function render() {
   while (pathElement.hasChildNodes())
     pathElement.removeChild(pathElement.firstChild);
 
-  paths.forEach(({ to, from, text: { x, y, value } }) => {
+  paths.forEach(({ to, from, text: { x, y, value: vv } }) => {
     const toElement = document.querySelector(`circle#${to}`);
     const fromElement = document.querySelector(`circle#${from}`);
+
+    const value = Math.floor(Math.random() * 10) + 1;
 
     toElement.dataset.targets += from;
     fromElement.dataset.targets += to;
@@ -292,6 +294,7 @@ function render() {
     line.setAttribute("stroke-width", 2);
     line.setAttribute("fill", "none");
     line.dataset.nodes = `${from},${to}`;
+    line.dataset.value = value;
     line.id = `from${from}_to${to}_path`;
 
     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
@@ -303,10 +306,27 @@ function render() {
     text.setAttribute("stroke", "black");
     text.setAttribute("stroke-width", 2);
     // text.innerHTML = value;
-    text.innerHTML = Math.floor(Math.random() * 10) + 1;
+    text.innerHTML = value;
+    text.dataset.nodes = `${from},${to}`;
+    text.dataset.value = value;
     text.id = `from${from}_to${to}_text`;
 
     pathElement.appendChild(line);
     pathElement.appendChild(text);
   });
+}
+
+function getPaths() {
+  const result = [];
+  document
+    .querySelector("g#paths")
+    .querySelectorAll("path")
+    .forEach((element) => {
+      const [a, b] = element.dataset.nodes.split(",");
+      parents[a] = a;
+      parents[b] = b;
+      result.push([parseInt(element.dataset.value), a, b, element]);
+    });
+
+  return result;
 }
