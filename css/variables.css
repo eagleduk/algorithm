@@ -1,3 +1,28 @@
 :root {
-  --background-color: black;
+  /* Left Menu */
+  --navgation-background-color: violet;
+
+  --logo-font-color: orangered;
+
+  --menu-background-color: blanchedalmond;
+  --menu-background-color: rgb(255, 99, 71, 0.6);
+  --menu-hover-background-color: rgb(255, 99, 71, 0.8);
+  --menu-open-background-color: rgb(255, 255, 255, 0.6);
+
+  --subMenu-hover-background-color: rgb(255, 255, 255, 0.8);
+
+  /* header */
+  --header-background-color: #e2e2e2;
+
+  /* main - home */
+  --home-item-background-color: rgb(2, 0, 36);
+  --home-item-font-color: white;
+
+  /* border */
+  --border-color-black: black;
+
+  /* footer */
+  --footer-background-color: #2e2e2e;
+  --footer-infomation-color: white;
+  --footer-anchor-color: white;
 }
