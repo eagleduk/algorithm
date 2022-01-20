@@ -21,128 +21,148 @@
                 </span>
             </a>
 
-            <ul class="main-menu">
-                <li>
-                    <details open>
+            <details open>
 
-                        <summary>
+                <summary title="정렬">
+                    <span>
+                        Sorting
+                    </span>
+                </summary>
+
+                <ul class="sub-menu">
+                    <li>
+                        <a href="#bubble">
                             <span>
-                                sort
+                                Bubble
                             </span>
-                        </summary>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="#bubble">
-                                    <span>bubble</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#selection">
-                                    <span>selection</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#insert">
-                                    <span>insert</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </details>
-                </li>
-                <li>
-                    <details>
-                        <summary>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#selection">
                             <span>
-                                search
+                                Selection
                             </span>
-                        </summary>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="/html/search.html#sequential">
-                                    <span>sequential</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/html/search.html#binary">
-                                    <span>binary</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/html/search.html#bfs">
-                                    <span>BFS</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/html/search.html#dfs">
-                                    <span>DFS</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </details>
-                </li>
+                        </a>
+                    </li>
 
-                <li style="display:none;">
-                    <details>
-                        <summary>
+                    <li>
+                        <a href="#insert">
+                            <span>
+                                Insertion
+                            </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </details>
+
+            <details>
+
+                <summary title="검색">
+                    <span>
+                        Search
+                    </span>
+                </summary>
+
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/html/search.html#sequential">
+                            <span>
+                                Sequential
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/html/search.html#binary">
+                            <span>
+                                Binary
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/html/search.html#bfs">
+                            <span>
+                                Breadth-first search
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/html/search.html#dfs">
+                            <span>
+                                Depth-first search
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+
+                <summary title="최단 경로">
+                    <span>
+                        Shortest Path
+                    </span>
+                </summary>
+
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/html/spp.html">
+                            <span>
+                                Dijkstra
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+
+                <summary title="최소 신장 트리">
+                    <span>
+                        Min Spanning Tree
+                    </span>
+                </summary>
+
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/html/mst.html#kruskal">
+                            <span>
+                                Kruskal
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/html/mst.html#prim">
+                            <span>
+                                Prim
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+            </details>
+
+            <details style="display: none;">
+                <summary>
+                    <span>
+                        Greedy
+                    </span>
+                </summary>
+
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/html/greedy.html#greedy">
                             <span>
                                 Greedy
                             </span>
-                        </summary>
-
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="/html/greedy.html#greedy">
-                                    <span>Greedy</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </details>
-                </li>
-
-                <li>
-                    <details>
-                        <summary>
-                            <span>
-                                SPP
-                            </span>
-                        </summary>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="/html/spp.html">
-                                    <span>Dijkstra</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </details>
-                </li>
-
-                <li>
-                    <details>
-                        <summary>
-                            <span>
-                                MST
-                            </span>
-                        </summary>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="/html/mst.html#kruskal">
-                                    <span>kruskal</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/html/mst.html#prim">
-                                    <span>prim</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </details>
-                </li>
-
-            </ul>
+                        </a>
+                    </li>
+                </ul>
+            </details>
         </nav>
 
         <div>
@@ -155,7 +175,7 @@
             <article></article>
 
             <div>
-                <section></section>
+                <section id="sorting"></section>
             </div>
         </div>
     </main>

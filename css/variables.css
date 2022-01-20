@@ -1,4 +1,7 @@
 :root {
+  /* background */
+  --home-background-image: url("/images/cool-background.png");
+
   /* Left Menu */
   --navgation-background-color: violet;
 
@@ -15,7 +18,9 @@
   --header-background-color: #e2e2e2;
 
   /* main - home */
+  --home-panel-backgound-color: aliceblue;
   --home-item-background-color: rgb(2, 0, 36);
+  --home-item-background-color-second: rgb(0, 212, 255, 1);
   --home-item-font-color: white;
 
   /* border */

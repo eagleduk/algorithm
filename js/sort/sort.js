@@ -26,6 +26,7 @@ function render() {
 
   for (let i = 0; i < SIZE; i++) {
     let span = document.createElement("span");
+    span.className = "content";
     span.dataset.value = parseInt(Math.random() * 99, 0) + 1;
     section.appendChild(span);
   }
