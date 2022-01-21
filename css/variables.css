@@ -30,4 +30,26 @@
   --footer-background-color: #2e2e2e;
   --footer-infomation-color: white;
   --footer-anchor-color: white;
+
+  /* input */
+  --button-normal-background-color: red;
+  --button-normal-font-color: white;
+
+  --button-normal-hover-background-color: blue;
+  --button-normal-hover-font-color: orange;
+
+  --button-normal-active-background-color: tomato;
+  --button-normal-active-font-color: gray;
+
+  --button-disabled-background-color: white;
+  --button-disabled-font-color: orange;
+
+  /* content */
+  --content-background-color: yellow;
+
+  --content-normal-border-color: black;
+
+  --content-target-border-color: tomato;
+
+  --content-font-color: black;
 }
