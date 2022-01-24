@@ -1,3 +1,5 @@
+let key;
+
 const controllers = [
   {
     type: "button",
@@ -5,7 +7,10 @@ const controllers = [
     events: [
       {
         event: "click",
-        action: render,
+        action: () => {
+          key = Date.now();
+          renderModule(controllers, key);
+        },
       },
     ],
   },
@@ -21,30 +26,41 @@ const controllers = [
   },
 ];
 
-async function insertSort() {
-  const section = document.querySelector("section");
+async function insertSort(e) {
+  e.target.disabled = true;
+  const section = document.querySelector("section#sorting");
+  const contents = section.querySelectorAll(`span.s${key}`);
+  const ll = contents.length;
 
-  const ll = section.children.length;
   for (let stand = 1; stand < ll; stand++) {
-    let targetContent = section.children[stand];
+    let targetContent = contents[stand];
     let targetValue = parseInt(targetContent.dataset.value, 0);
+    targetContent.classList.add("target");
 
     let temp = stand;
-    while (section.children[--temp]) {
-      let sourceContent = section.children[temp];
+    while (contents[--temp]) {
+      let sourceContent = contents[temp];
       let sourceValue = parseInt(sourceContent.dataset.value, 0);
+      sourceContent.classList.add("target");
+
+      await _timeout();
 
       if (targetValue < sourceValue) {
         await swap(sourceContent, targetContent);
+        targetContent.classList.remove("target");
         targetContent = sourceContent;
         targetValue = parseInt(targetContent.dataset.value, 0);
       } else {
+        sourceContent.classList.remove("target");
         break;
       }
     }
+    targetContent.classList.remove("target");
   }
+  e.target.disabled = false;
 }
 
-export default () => {
-  renderModule(controllers);
+export default (time) => {
+  key = time;
+  renderModule(controllers, time);
 };

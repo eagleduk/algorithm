@@ -1,0 +1,55 @@
+section#sorting {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+  padding-top: 50px;
+}
+
+/* 
+*****************       content 
+*/
+
+span.content {
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--content-normal-border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--content-background-color);
+  font-size: 28px;
+  color: var(--content-font-color);
+  /* padding: 10px; */
+}
+
+span.content::before {
+  content: attr(data-value);
+}
+
+span.content.standard {
+  border-color: var(--content-standard-border-color);
+}
+
+span.content.compare {
+  border-color: var(--content-compare-border-color);
+}
+
+span.content.target {
+  border-color: var(--content-target-border-color);
+}
+
+span.content.delete {
+  border-color: none;
+}
+
+span.content.delete::before {
+  content: "";
+  font-size: 30px;
+}

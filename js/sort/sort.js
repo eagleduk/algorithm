@@ -1,13 +1,13 @@
-import("../index.js");
-
 const SIZE = 10;
 const SWAPTIME = 1000;
 
 async function loadModule() {
   const name = globalThis.location.hash.slice(1);
   const { default: moduleJS } = await import(`./${name}.js`);
+  document.querySelector("li.selected")?.classList.remove("selected");
+  document.querySelector(`#${name}`).classList.add("selected");
   document.querySelector("span#title").innerHTML = name;
-  moduleJS();
+  moduleJS(Date.now());
 }
 
 globalThis.addEventListener("DOMContentLoaded", async (e) => {
@@ -18,23 +18,23 @@ globalThis.addEventListener("hashchange", async (e) => {
   loadModule();
 });
 
-function render() {
-  const section = document.querySelector("section");
+function render(time) {
+  const section = document.querySelector("section#sorting");
   while (section.hasChildNodes()) {
     section.removeChild(section.firstChild);
   }
 
   for (let i = 0; i < SIZE; i++) {
     let span = document.createElement("span");
-    span.className = "content";
+    span.className = `content s${time}`;
     span.dataset.value = parseInt(Math.random() * 99, 0) + 1;
     section.appendChild(span);
   }
 }
 
-function renderModule(controllers) {
+function renderModule(controllers, time) {
   renderControl(controllers);
-  render();
+  render(time);
 }
 
 async function swap(targetContent, sourceContent) {
@@ -53,6 +53,7 @@ async function swap(targetContent, sourceContent) {
   const temp = targetContent.dataset.value;
   targetContent.dataset.value = sourceContent.dataset.value;
   sourceContent.dataset.value = temp;
+
   return { targetContent, sourceContent };
 }
 

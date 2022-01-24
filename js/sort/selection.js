@@ -1,3 +1,5 @@
+let key;
+
 const controllers = [
   {
     type: "button",
@@ -5,7 +7,10 @@ const controllers = [
     events: [
       {
         event: "click",
-        action: render,
+        action: () => {
+          key = Date.now();
+          renderModule(controllers, key);
+        },
       },
     ],
   },
@@ -21,31 +26,48 @@ const controllers = [
   },
 ];
 
-async function selectionSort() {
-  const section = document.querySelector("section");
+async function selectionSort(e) {
+  e.target.disabled = true;
+  const section = document.querySelector("section#sorting");
+  const contents = section.querySelectorAll(`span.s${key}`);
+  const ll = contents.length;
 
-  const ll = section.children.length;
+  for (let standard = 0; standard < ll; standard++) {
+    let targetContent = contents[standard];
+    targetContent.classList.add("standard");
 
-  for (let stand = 0; stand < ll; stand++) {
-    let targetContent = section.children[stand];
+    let minIndex = standard;
+    let minContent = contents[minIndex];
+    let minValue = parseInt(minContent.dataset.value, 0);
+    //minContent.classList.add("target");
 
-    let minValue = parseInt(targetContent.dataset.value, 0);
-    let minIndex = stand;
-
-    for (let index = stand + 1; index < ll; index++) {
-      let sourceContent = section.children[index];
+    for (let index = standard; index < ll; index++) {
+      let sourceContent = contents[index];
       let sourceValue = parseInt(sourceContent.dataset.value, 0);
+      sourceContent.classList.add("compare");
+
+      await _timeout();
+
       if (sourceValue < minValue) {
+        minContent.classList.remove("target");
+        sourceContent.classList.add("target");
         minValue = sourceValue;
         minIndex = index;
+        minContent = sourceContent;
       }
+      sourceContent.classList.remove("compare");
     }
 
-    let sourceContent = section.children[minIndex];
+    let sourceContent = contents[minIndex];
     await swap(targetContent, sourceContent);
+
+    sourceContent.classList.remove("target");
+    targetContent.classList.remove("standard");
   }
+  e.target.disabled = false;
 }
 
-export default () => {
-  renderModule(controllers);
+export default (time) => {
+  key = time;
+  renderModule(controllers, time);
 };

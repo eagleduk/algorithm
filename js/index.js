@@ -26,3 +26,14 @@ document.querySelectorAll("details").forEach((element) => {
     }
   });
 });
+
+async function _timeout(ms = 2000, fn) {
+  await new Promise((resolve, reject) => {
+    setTimeout((e) => {
+      if (typeof fn === "function") {
+        fn();
+      }
+      resolve();
+    }, ms);
+  });
+}
