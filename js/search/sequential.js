@@ -1,38 +1,61 @@
-function sequentialSearch(input) {
-  const svg = document.querySelector("svg");
+const exportDefault = () => {
+  renderArrayModule(controllers, Date.now());
+};
 
-  svg.querySelectorAll("g").forEach((g) => {
-    const rect = g.children[0];
-    const text = g.children[1];
+const controllers = [
+  {
+    type: "button",
+    text: "render",
+    events: [
+      {
+        event: "click",
+        action: exportDefault,
+      },
+    ],
+  },
+  {
+    type: "input",
+    text: "",
+    events: [{}],
+  },
+  {
+    type: "button",
+    text: "search",
+    events: [
+      {
+        event: "click",
+        action: sequentialSearch,
+      },
+    ],
+  },
+];
 
+async function sequentialSearch(e) {
+  e.target.disabled = true;
+  const key = e.target.dataset.key;
+  const input = e.target.previousElementSibling;
+
+  const svg = document.querySelector("svg#search");
+  const contents = svg.querySelectorAll(`g.g${key}`);
+  const ll = contents.length;
+
+  for (let i = 0; i < ll; i++) {
+    let content = contents[i];
+    let rect = content.children[0];
+    let text = content.children[1];
+
+    rect.setAttribute("class", "compare");
     const value = text.innerHTML;
 
-    if (value === input) {
-      rect.setAttribute("stroke", "red");
+    await _timeout();
+
+    if (value === input.value) {
+      rect.setAttribute("class", "target");
+    } else {
+      rect.setAttribute("class", "");
     }
-  });
+  }
+  e.target.disabled = false;
 }
 
-function renderController() {
-  const article = document.querySelector("article");
-
-  while (article.hasChildNodes()) article.removeChild(article.firstChild);
-
-  const input = document.createElement("input");
-  input.type = "text";
-
-  const search = document.createElement("input");
-  search.type = "button";
-  search.addEventListener("click", (e) => {
-    sequentialSearch(input.value);
-  });
-  search.value = "search";
-
-  article.appendChild(input);
-  article.appendChild(search);
-}
-
-export default () => {
-  renderController();
-  render();
-};
+export default exportDefault;

@@ -1,0 +1,38 @@
+svg#search {
+  padding-top: 20px;
+}
+
+rect {
+  stroke: blue;
+  stroke-width: 3px;
+  fill: transparent;
+}
+
+text {
+  text-anchor: middle;
+  font-size: 28px;
+  alignment-baseline: central;
+}
+
+circle {
+  fill: transparent;
+  stroke-width: 3px;
+  stroke: black;
+}
+
+path {
+  stroke-width: 3px;
+  stroke: blue;
+}
+
+rect.compare {
+  stroke: var(--content-compare-border-color);
+}
+
+rect.target {
+  stroke: var(--content-target-border-color);
+}
+
+rect.disabled {
+  stroke: var(--content-disabled-border-color);
+}

@@ -1,49 +1,83 @@
-function search(arrs, input) {
+const exportDefault = () => {
+  renderArrayModule(controllers, Date.now(), true);
+};
+
+const controllers = [
+  {
+    type: "button",
+    text: "render",
+    events: [
+      {
+        event: "click",
+        action: exportDefault,
+      },
+    ],
+  },
+  {
+    type: "input",
+    text: "",
+    events: [{}],
+  },
+  {
+    type: "button",
+    text: "search",
+    events: [
+      {
+        event: "click",
+        action: binarySearch,
+      },
+    ],
+  },
+];
+
+function contentDisabled(arrs) {
+  arrs.forEach((arr) => {
+    arr.children[0].setAttribute("class", "disabled");
+  });
+}
+
+async function search(arrs, input) {
   if (arrs.length === 1) {
-    return;
+    return false;
   }
 
   const length = arrs.length;
   const half = parseInt(length / 2);
-  const value = parseInt(arrs[half].children[1].innerHTML);
+
+  const halfContent = arrs[half];
+  const halfRect = halfContent.children[0];
+  const halfText = halfContent.children[1];
+  const value = parseInt(halfText.innerHTML);
+
+  halfRect.setAttribute("class", "compare");
+  await _timeout();
 
   if (value === input) {
-    arrs[half].children[0].setAttribute("stroke", "red");
-    return;
-  } else if (value < input) {
-    return search(arrs.slice(half), input);
+    halfRect.setAttribute("class", "target");
+    return true;
+  }
+
+  halfRect.setAttribute("class", "");
+  if (value < input) {
+    contentDisabled(arrs.slice(0, half));
+    return await search(arrs.slice(half), input);
   } else if (value > input) {
-    return search(arrs.slice(0, half), input);
+    contentDisabled(arrs.slice(half));
+    return await search(arrs.slice(0, half), input);
   }
 }
 
-function binarySearch(input) {
-  const svg = document.querySelector("svg");
+async function binarySearch(e) {
+  e.target.disabled = true;
+  const key = e.target.dataset.key;
+  const input = e.target.previousElementSibling;
 
-  const arrs = Array.from(svg.querySelectorAll("g"));
-  search(arrs, parseInt(input));
+  const svg = document.querySelector("svg#search");
+
+  const arrs = Array.from(svg.querySelectorAll(`g.g${key}`));
+  const result = await search(arrs, parseInt(input.value));
+
+  e.target.disabled = false;
 }
 
-function renderController() {
-  const article = document.querySelector("article");
-
-  while (article.hasChildNodes()) article.removeChild(article.firstChild);
-
-  const input = document.createElement("input");
-  input.type = "text";
-
-  const search = document.createElement("input");
-  search.type = "button";
-  search.addEventListener("click", (e) => {
-    binarySearch(input.value);
-  });
-  search.value = "search";
-
-  article.appendChild(input);
-  article.appendChild(search);
-}
-
-export default () => {
-  renderController();
-  render(true);
-};
+export default exportDefault;

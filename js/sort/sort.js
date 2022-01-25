@@ -7,7 +7,7 @@ async function loadModule() {
   document.querySelector("li.selected")?.classList.remove("selected");
   document.querySelector(`#${name}`).classList.add("selected");
   document.querySelector("span#title").innerHTML = name;
-  moduleJS(Date.now());
+  moduleJS();
 }
 
 globalThis.addEventListener("DOMContentLoaded", async (e) => {
@@ -33,7 +33,7 @@ function render(time) {
 }
 
 function renderModule(controllers, time) {
-  renderControl(controllers);
+  renderControl(controllers, time);
   render(time);
 }
 
@@ -57,7 +57,7 @@ async function swap(targetContent, sourceContent) {
   return { targetContent, sourceContent };
 }
 
-function renderControl(controllers = []) {
+function renderControl(controllers = [], time) {
   const control = document.querySelector("article");
 
   while (control.hasChildNodes()) control.removeChild(control.firstChild);
@@ -66,6 +66,7 @@ function renderControl(controllers = []) {
     const { type, text, events } = controller;
 
     const button = document.createElement("input");
+    button.dataset.key = time;
     button.type = type;
     button.value = text;
     events.forEach(({ event, action }) => {

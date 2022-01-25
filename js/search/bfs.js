@@ -33,5 +33,5 @@ function renderController() {
 
 export default () => {
   renderController();
-  render1();
+  renderTree();
 };

@@ -1,4 +1,6 @@
-let key;
+const exportDefault = () => {
+  renderModule(controllers, Date.now());
+};
 
 const controllers = [
   {
@@ -7,10 +9,7 @@ const controllers = [
     events: [
       {
         event: "click",
-        action: () => {
-          key = Date.now();
-          renderModule(controllers, key);
-        },
+        action: exportDefault,
       },
     ],
   },
@@ -28,6 +27,8 @@ const controllers = [
 
 async function insertSort(e) {
   e.target.disabled = true;
+  const key = e.target.dataset.key;
+
   const section = document.querySelector("section#sorting");
   const contents = section.querySelectorAll(`span.s${key}`);
   const ll = contents.length;
@@ -60,7 +61,4 @@ async function insertSort(e) {
   e.target.disabled = false;
 }
 
-export default (time) => {
-  key = time;
-  renderModule(controllers, time);
-};
+export default exportDefault;
