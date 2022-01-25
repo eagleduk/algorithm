@@ -46,10 +46,11 @@ async function search(arrs, input) {
 
   const halfContent = arrs[half];
   const halfRect = halfContent.children[0];
+  halfRect.setAttribute("class", "compare");
+
   const halfText = halfContent.children[1];
   const value = parseInt(halfText.innerHTML);
 
-  halfRect.setAttribute("class", "compare");
   await _timeout();
 
   if (value === input) {

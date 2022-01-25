@@ -1,37 +1,63 @@
-function bfs(input) {
-  const svg = document.querySelector("svg");
-
-  svg.querySelectorAll("g").forEach((g) => {
-    const circle = g.children[0];
-    const text = g.children[1];
-    const value = text.innerHTML;
-    console.log(value);
-    if (value === input) {
-      circle.setAttribute("stroke", "red");
-    }
-  });
-}
-
-function renderController() {
-  const article = document.querySelector("article");
-
-  while (article.hasChildNodes()) article.removeChild(article.firstChild);
-
-  const input = document.createElement("input");
-  input.type = "text";
-
-  const search = document.createElement("input");
-  search.type = "button";
-  search.addEventListener("click", (e) => {
-    bfs(input.value);
-  });
-  search.value = "search";
-
-  article.appendChild(input);
-  article.appendChild(search);
-}
-
-export default () => {
-  renderController();
-  renderTree();
+const exportDefault = () => {
+  renderTreeModule(controllers, Date.now());
 };
+
+const controllers = [
+  {
+    type: "button",
+    text: "render",
+    events: [
+      {
+        event: "click",
+        action: exportDefault,
+      },
+    ],
+  },
+  {
+    type: "input",
+    text: "",
+    events: [{}],
+  },
+  {
+    type: "button",
+    text: "search",
+    events: [
+      {
+        event: "click",
+        action: bfs,
+      },
+    ],
+  },
+];
+
+async function bfs(e) {
+  e.target.disabled = true;
+  const key = e.target.dataset.key;
+  const input = e.target.previousElementSibling;
+
+  const svg = document.querySelector("svg#search");
+  const contents = svg.querySelectorAll(`g.g${key}`);
+  const ll = contents.length;
+
+  for (let i = 0; i < ll; i++) {
+    const content = contents[i];
+
+    const circle = content.children[0];
+    circle.setAttribute("class", "compare");
+
+    const text = content.children[1];
+    const value = text.innerHTML;
+
+    await _timeout();
+
+    if (value === input.value) {
+      circle.setAttribute("class", "target");
+    } else {
+      circle.setAttribute("class", "disabled");
+    }
+  }
+
+  e.target.disabled = false;
+}
+
+export default exportDefault;

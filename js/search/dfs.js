@@ -1,7 +1,43 @@
-function dfs(input) {
-  const svg = document.querySelector("svg");
+const exportDefault = () => {
+  renderTreeModule(controllers, Date.now());
+};
 
-  const gs = svg.querySelectorAll("g");
+const controllers = [
+  {
+    type: "button",
+    text: "render",
+    events: [
+      {
+        event: "click",
+        action: exportDefault,
+      },
+    ],
+  },
+  {
+    type: "input",
+    text: "",
+    events: [{}],
+  },
+  {
+    type: "button",
+    text: "search",
+    events: [
+      {
+        event: "click",
+        action: dfs,
+      },
+    ],
+  },
+];
+
+async function dfs(e) {
+  e.target.disabled = true;
+  const key = e.target.dataset.key;
+  const input = e.target.previousElementSibling;
+
+  const svg = document.querySelector("svg#search");
+
+  const contents = svg.querySelectorAll(`g.g${key}`);
   const check = [];
   const checked = new Set();
 
@@ -12,44 +48,26 @@ function dfs(input) {
 
     if (checked.has(index)) continue;
 
-    let rect = gs[index].children[0];
-    let text = gs[index].children[1];
+    let circle = contents[index].children[0];
+    circle.setAttribute("class", "compare");
+
+    let text = contents[index].children[1];
     let value = text.innerHTML;
 
-    console.log(value);
+    await _timeout();
 
-    if (input === value) rect.setAttribute("stroke", "red");
+    if (value === input.value) circle.setAttribute("class", "target");
+    else circle.setAttribute("class", "disabled");
 
     checked.add(index);
 
     let left = (index + 1) * 2 - 1;
     let right = (index + 1) * 2;
 
-    if (gs[right]) check.unshift(right);
-    if (gs[left]) check.unshift(left);
+    if (contents[right]) check.unshift(right);
+    if (contents[left]) check.unshift(left);
   }
+  e.target.disabled = false;
 }
 
-function renderController() {
-  const article = document.querySelector("article");
-
-  while (article.hasChildNodes()) article.removeChild(article.firstChild);
-
-  const input = document.createElement("input");
-  input.type = "text";
-
-  const search = document.createElement("input");
-  search.type = "button";
-  search.addEventListener("click", (e) => {
-    dfs(input.value);
-  });
-  search.value = "search";
-
-  article.appendChild(input);
-  article.appendChild(search);
-}
-
-export default () => {
-  renderController();
-  renderTree();
-};
+export default exportDefault;

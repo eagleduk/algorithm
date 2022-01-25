@@ -40,11 +40,11 @@ async function sequentialSearch(e) {
   const ll = contents.length;
 
   for (let i = 0; i < ll; i++) {
-    let content = contents[i];
-    let rect = content.children[0];
-    let text = content.children[1];
-
+    const content = contents[i];
+    const rect = content.children[0];
     rect.setAttribute("class", "compare");
+
+    const text = content.children[1];
     const value = text.innerHTML;
 
     await _timeout();
@@ -52,7 +52,7 @@ async function sequentialSearch(e) {
     if (value === input.value) {
       rect.setAttribute("class", "target");
     } else {
-      rect.setAttribute("class", "");
+      rect.setAttribute("class", "disabled");
     }
   }
   e.target.disabled = false;

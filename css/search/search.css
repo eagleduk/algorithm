@@ -2,37 +2,41 @@ svg#search {
   padding-top: 20px;
 }
 
-rect {
-  stroke: blue;
+svg#search rect {
+  stroke: var(--content-normal-border-color);
   stroke-width: 3px;
-  fill: transparent;
+  fill: var(--content-background-color);
 }
 
-text {
+svg#search text {
   text-anchor: middle;
   font-size: 28px;
   alignment-baseline: central;
+  fill: var(--content-font-color);
 }
 
-circle {
-  fill: transparent;
+svg#search circle {
+  fill: var(--content-background-color);
   stroke-width: 3px;
-  stroke: black;
+  stroke: var(--content-normal-border-color);
 }
 
-path {
+svg#search path {
   stroke-width: 3px;
-  stroke: blue;
+  stroke: var(--content-normal-border-color);
 }
 
-rect.compare {
+svg#search rect.compare,
+svg#search circle.compare {
   stroke: var(--content-compare-border-color);
 }
 
-rect.target {
+svg#search rect.target,
+svg#search circle.target {
   stroke: var(--content-target-border-color);
 }
 
-rect.disabled {
+svg#search rect.disabled,
+svg#search circle.disabled {
   stroke: var(--content-disabled-border-color);
 }
