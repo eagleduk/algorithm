@@ -1,0 +1,42 @@
+svg#mst {
+}
+
+svg#mst circle {
+  fill: var(--content-background-color);
+  stroke-width: 3px;
+  stroke: var(--content-normal-border-color);
+}
+
+svg#mst circle.target {
+  stroke: var(--content-target-border-color);
+}
+
+svg#mst circle.disabled {
+  stroke: var(--content-disabled-border-color);
+}
+
+svg#mst text {
+  text-anchor: middle;
+  font-size: 28px;
+  alignment-baseline: central;
+  fill: var(--content-font-color);
+}
+
+svg#mst text.value {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+svg#mst path {
+  fill: none;
+  stroke-width: 2px;
+  stroke: var(--path-normal-stroke-color);
+}
+
+svg#mst path.target {
+  stroke: var(--content-target-border-color);
+}
+
+svg#mst path.compare {
+  stroke: var(--content-compare-border-color);
+}

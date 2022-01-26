@@ -6,6 +6,7 @@
 @import url("sort/sort.css");
 @import url("search/search.css");
 @import url("spp/spp.css");
+@import url("mst/mst.css");
 
 /*
 *****************       Base Layout
@@ -28,6 +29,7 @@ body {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 

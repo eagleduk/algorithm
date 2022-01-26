@@ -1,13 +1,29 @@
-/*
+const exportDefault = () => {
+  renderModule(controllers, Date.now());
+};
 
-1. 모든 간선들을 오름차순 정렬
-2. 최소 간선에 연결된 노드들 찾기
-3. 노드 정보 저장
-4. 최소 간선에 연결된 노드 찾기
-5. 노드 정보들에 사이클이 이루어 지는지 검사
-
-
-*/
+const controllers = [
+  {
+    type: "button",
+    text: "render",
+    events: [
+      {
+        event: "click",
+        action: exportDefault,
+      },
+    ],
+  },
+  {
+    type: "button",
+    text: "go",
+    events: [
+      {
+        event: "click",
+        action: kruskal,
+      },
+    ],
+  },
+];
 
 function getParent(parents, node) {
   if (parents[node] === node) return node;
@@ -22,7 +38,10 @@ function union(parents, from, to) {
   else parents[a] = b;
 }
 
-function kruskal() {
+async function kruskal(e) {
+  e.target.disabled = true;
+  const key = e.target.dataset.key;
+
   const lines = [];
   const parents = {};
 
@@ -38,37 +57,26 @@ function kruskal() {
 
   lines.sort((a, b) => a[0] - b[0]);
 
-  const results = [];
-
   while (lines.length) {
     const [value, from, to, element] = lines.shift();
+    element.classList.add("compare");
+
+    await _timeout();
 
     if (getParent(parents, from) !== getParent(parents, to)) {
       union(parents, from, to);
-      results.push(element);
-      element.setAttribute("stroke", "red");
+
+      document
+        .querySelector(`circle#${from}.c${key}`)
+        .classList.add("disabled");
+      document.querySelector(`circle#${to}.c${key}`).classList.add("disabled");
+
+      element.classList.add("target");
     }
+    element.classList.remove("compare");
   }
-  console.log(parents);
-  console.log(results);
+
+  e.target.disabled = false;
 }
 
-function renderController() {
-  const article = document.querySelector("article");
-
-  while (article.hasChildNodes()) article.removeChild(article.firstChild);
-
-  const go = document.createElement("input");
-  go.type = "button";
-  go.addEventListener("click", (e) => {
-    kruskal();
-  });
-  go.value = "go";
-
-  article.appendChild(go);
-}
-
-export default () => {
-  renderController();
-  render();
-};
+export default exportDefault;

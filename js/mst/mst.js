@@ -1,68 +1,68 @@
-const left = 100;
-const r = 25;
+const LEFTPADDING = 100;
+const CIRCLERADUIS = 25;
 
 const connections = {
   nodes: [
     {
       id: "A",
       location: {
-        x: 200 + left,
+        x: 200 + LEFTPADDING,
         y: 200,
       },
     },
     {
       id: "B",
       location: {
-        x: 500 + left,
+        x: 500 + LEFTPADDING,
         y: 100,
       },
     },
     {
       id: "C",
       location: {
-        x: 800 + left,
+        x: 800 + LEFTPADDING,
         y: 100,
       },
     },
     {
       id: "D",
       location: {
-        x: 480 + left,
+        x: 480 + LEFTPADDING,
         y: 250,
       },
     },
     {
       id: "E",
       location: {
-        x: 650 + left,
+        x: 650 + LEFTPADDING,
         y: 300,
       },
     },
     {
       id: "F",
       location: {
-        x: 380 + left,
+        x: 380 + LEFTPADDING,
         y: 380,
       },
     },
     {
       id: "G",
       location: {
-        x: 590 + left,
+        x: 590 + LEFTPADDING,
         y: 420,
       },
     },
     {
       id: "H",
       location: {
-        x: 800 + left,
+        x: 800 + LEFTPADDING,
         y: 360,
       },
     },
     {
       id: "I",
       location: {
-        x: 520 + left,
+        x: 520 + LEFTPADDING,
         y: 550,
       },
     },
@@ -72,7 +72,7 @@ const connections = {
       to: "A",
       from: "B",
       text: {
-        x: 350 + left,
+        x: 350 + LEFTPADDING,
         y: 130,
         value: 1,
       },
@@ -81,7 +81,7 @@ const connections = {
       to: "A",
       from: "D",
       text: {
-        x: 350 + left,
+        x: 350 + LEFTPADDING,
         y: 210,
         value: 2,
       },
@@ -90,7 +90,7 @@ const connections = {
       to: "A",
       from: "F",
       text: {
-        x: 310 + left,
+        x: 310 + LEFTPADDING,
         y: 285,
         value: 3,
       },
@@ -99,7 +99,7 @@ const connections = {
       to: "B",
       from: "C",
       text: {
-        x: 660 + left,
+        x: 660 + LEFTPADDING,
         y: 80,
         value: 4,
       },
@@ -108,7 +108,7 @@ const connections = {
       to: "B",
       from: "D",
       text: {
-        x: 510 + left,
+        x: 510 + LEFTPADDING,
         y: 180,
         value: 5,
       },
@@ -117,7 +117,7 @@ const connections = {
       to: "B",
       from: "E",
       text: {
-        x: 590 + left,
+        x: 590 + LEFTPADDING,
         y: 195,
         value: 6,
       },
@@ -126,7 +126,7 @@ const connections = {
       to: "C",
       from: "E",
       text: {
-        x: 705 + left,
+        x: 705 + LEFTPADDING,
         y: 195,
         value: 7,
       },
@@ -135,7 +135,7 @@ const connections = {
       to: "C",
       from: "H",
       text: {
-        x: 785 + left,
+        x: 785 + LEFTPADDING,
         y: 230,
         value: 8,
       },
@@ -144,7 +144,7 @@ const connections = {
       to: "D",
       from: "E",
       text: {
-        x: 550 + left,
+        x: 550 + LEFTPADDING,
         y: 290,
         value: 9,
       },
@@ -153,7 +153,7 @@ const connections = {
       to: "D",
       from: "F",
       text: {
-        x: 410 + left,
+        x: 410 + LEFTPADDING,
         y: 305,
         value: 10,
       },
@@ -162,7 +162,7 @@ const connections = {
       to: "E",
       from: "G",
       text: {
-        x: 600 + left,
+        x: 600 + LEFTPADDING,
         y: 350,
         value: 11,
       },
@@ -171,7 +171,7 @@ const connections = {
       to: "F",
       from: "G",
       text: {
-        x: 490 + left,
+        x: 490 + LEFTPADDING,
         y: 385,
         value: 12,
       },
@@ -180,7 +180,7 @@ const connections = {
       to: "F",
       from: "I",
       text: {
-        x: 470 + left,
+        x: 470 + LEFTPADDING,
         y: 460,
         value: 13,
       },
@@ -189,7 +189,7 @@ const connections = {
       to: "G",
       from: "H",
       text: {
-        x: 690 + left,
+        x: 690 + LEFTPADDING,
         y: 375,
         value: 14,
       },
@@ -198,7 +198,7 @@ const connections = {
       to: "H",
       from: "I",
       text: {
-        x: 670 + left,
+        x: 670 + LEFTPADDING,
         y: 470,
         value: 15,
       },
@@ -223,7 +223,32 @@ globalThis.addEventListener("hashchange", async (e) => {
   loadModule();
 });
 
-function render() {
+function renderModule(controllers, time) {
+  renderControl(controllers, time);
+  render(time);
+}
+
+function renderControl(controllers = [], time) {
+  const control = document.querySelector("article");
+
+  while (control.hasChildNodes()) control.removeChild(control.firstChild);
+
+  controllers.forEach((controller) => {
+    const { type, text, events } = controller;
+
+    const button = document.createElement("input");
+    button.dataset.key = time;
+    button.type = type;
+    button.value = text;
+    events.forEach(({ event, action }) => {
+      button.addEventListener(event, action);
+    });
+
+    control.appendChild(button);
+  });
+}
+
+function render(time) {
   const { nodes, paths } = connections;
 
   const nodeElement = document.querySelector("g#nodes");
@@ -240,14 +265,9 @@ function render() {
     circle.id = id;
     circle.setAttribute("cx", cx);
     circle.setAttribute("cy", cy);
-    circle.setAttribute("r", r);
-    circle.setAttribute("stroke", "black");
-    circle.setAttribute("stroke-width", 2);
-    circle.setAttribute("fill", "black");
+    circle.setAttribute("r", CIRCLERADUIS);
+    circle.setAttribute("class", `c${time}`);
     circle.dataset.targets = "";
-    circle.addEventListener("click", (e) => {
-      console.log(e.target);
-    });
 
     const label = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -255,14 +275,9 @@ function render() {
     );
     label.setAttribute("x", cx);
     label.setAttribute("y", cy);
-    label.setAttribute("text-anchor", "middle");
-    label.setAttribute("alignment-baseline", "central");
-    label.setAttribute("font-size", "24px");
-    label.setAttribute("stroke", "white");
-    label.setAttribute("stroke-width", 2);
+    label.setAttribute("class", `l${time}`);
     label.innerHTML = id;
-    label.id = `${id}_label`;
-    label.addEventListener("click", (e) => console.log(circle));
+    //label.id = `${id}_label`;
 
     nodeElement.appendChild(circle);
     nodeElement.appendChild(label);
@@ -274,10 +289,10 @@ function render() {
     pathElement.removeChild(pathElement.firstChild);
 
   paths.forEach(({ to, from, text: { x, y, value: vv } }) => {
-    const toElement = document.querySelector(`circle#${to}`);
-    const fromElement = document.querySelector(`circle#${from}`);
+    const toElement = document.querySelector(`circle#${to}.c${time}`);
+    const fromElement = document.querySelector(`circle#${from}.c${time}`);
 
-    const value = Math.floor(Math.random() * 10) + 1;
+    const value = Math.floor(Math.random() * 8) + 1;
 
     toElement.dataset.targets += from;
     fromElement.dataset.targets += to;
@@ -290,9 +305,7 @@ function render() {
       "d",
       `M${fromX.value} ${fromY.value} ${toX.value} ${toY.value}`
     );
-    line.setAttribute("stroke", "black");
-    line.setAttribute("stroke-width", 2);
-    line.setAttribute("fill", "none");
+    line.setAttribute("class", `p${time}`);
     line.dataset.nodes = `${from},${to}`;
     line.dataset.value = value;
     line.id = `from${from}_to${to}_path`;
@@ -300,12 +313,7 @@ function render() {
     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
     text.setAttribute("x", x);
     text.setAttribute("y", y);
-    text.setAttribute("text-anchor", "middle");
-    text.setAttribute("alignment-baseline", "central");
-    text.setAttribute("font-size", "16px");
-    text.setAttribute("stroke", "black");
-    text.setAttribute("stroke-width", 2);
-    // text.innerHTML = value;
+    text.setAttribute("class", `value v${time}`);
     text.innerHTML = value;
     text.dataset.nodes = `${from},${to}`;
     text.dataset.value = value;
@@ -314,19 +322,4 @@ function render() {
     pathElement.appendChild(line);
     pathElement.appendChild(text);
   });
-}
-
-function getPaths() {
-  const result = [];
-  document
-    .querySelector("g#paths")
-    .querySelectorAll("path")
-    .forEach((element) => {
-      const [a, b] = element.dataset.nodes.split(",");
-      parents[a] = a;
-      parents[b] = b;
-      result.push([parseInt(element.dataset.value), a, b, element]);
-    });
-
-  return result;
 }
