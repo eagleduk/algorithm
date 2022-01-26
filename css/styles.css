@@ -5,6 +5,7 @@
 @import url("variables.css");
 @import url("sort/sort.css");
 @import url("search/search.css");
+@import url("spp/spp.css");
 
 /*
 *****************       Base Layout
@@ -243,6 +244,12 @@ input {
   /* height: 40px; */
   margin: 5px 10px;
   padding: 10px 20px;
+}
+
+input[type="text"] {
+  width: 26px;
+  font-size: 24px;
+  padding: 5px 15px;
 }
 
 input[type="button"] {

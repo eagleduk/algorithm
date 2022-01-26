@@ -61,5 +61,9 @@
 
   --content-disabled-border-color: wheat;
 
+  --path-normal-stroke-color: black;
+
+  --path-target-stroke-color: yellowgreen;
+
   --content-font-color: black;
 }

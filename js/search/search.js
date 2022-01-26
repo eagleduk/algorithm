@@ -6,7 +6,6 @@ const CIRCLERADIUS = 30;
 
 const TREEDEPTH = 5;
 const LENGTH = 17;
-const SWAPTIME = 1000;
 
 async function loadModule() {
   const name = globalThis.location.hash.slice(1);
@@ -149,17 +148,20 @@ function renderControl(controllers = [], time) {
   while (control.hasChildNodes()) control.removeChild(control.firstChild);
 
   controllers.forEach((controller) => {
-    const { type, text, events } = controller;
+    const { type, text, events, options } = controller;
 
-    const button = document.createElement("input");
-    button.dataset.key = time;
-    button.type = type;
-    button.value = text;
+    const input = document.createElement("input");
+    input.dataset.key = time;
+    input.type = type;
+    input.value = text;
     events.forEach(({ event, action }) => {
-      button.addEventListener(event, action);
+      input.addEventListener(event, action);
+    });
+    options.forEach(({ name, value }) => {
+      input[name] = value;
     });
 
-    control.appendChild(button);
+    control.appendChild(input);
   });
 }
 

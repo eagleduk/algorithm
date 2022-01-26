@@ -1,5 +1,3 @@
-import("../index.js");
-
 const left = 100;
 const r = 25;
 
@@ -211,6 +209,8 @@ const connections = {
 async function loadModule() {
   const name = globalThis.location.hash.slice(1);
   const { default: moduleJS } = await import(`./${name}.js`);
+  document.querySelector("li.selected")?.classList.remove("selected");
+  document.querySelector(`#${name}`).classList.add("selected");
   document.querySelector("span#title").innerHTML = name;
   moduleJS();
 }

@@ -108,8 +108,8 @@
                 </summary>
 
                 <ul class="sub-menu">
-                    <li>
-                        <a href="#">
+                    <li id="dijkstra">
+                        <a href="#dijkstra">
                             <span>
                                 Dijkstra
                             </span>
@@ -166,11 +166,12 @@
 
         <div>
             <header>
-                header
+                Shortest Path > <span id="title">bubble</span>
             </header>
 
             <article></article>
-            <svg id="dijkstra" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+            <svg width="0" height="0">
                 <g>
                     <marker id="Triangle" viewBox="0 0 10 10" refX="30" refY="5" markerWidth="6" markerHeight="6"
                         orient="auto">
@@ -178,9 +179,24 @@
                     </marker>
                 </g>
 
-                <g id="lineGroup">
+                <defs>
+                    <linearGradient id="navigate">
+                        <stop offset="0%">
+                            <animate attributeName="offset" dur="2.5s" from="0" to="1" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="0%" />
+                        <stop offset="43%" />
+                        <stop offset="50%" />
+                        <stop offset="57%" />
+                        <stop offset="100%" />
+                    </linearGradient>
+                </defs>
 
-                </g>
+            </svg>
+
+
+            <svg id="spp" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
             </svg>
 
 
@@ -206,7 +222,9 @@
             </a>
         </address>
     </footer>
-    <script src="/js/spp/dijkstra.js"></script>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/spp/spp.js"></script>
 </body>
 
 </html>

@@ -12,11 +12,13 @@ const controllers = [
         action: exportDefault,
       },
     ],
+    options: [{}],
   },
   {
-    type: "input",
+    type: "text",
     text: "",
     events: [{}],
+    options: [{ name: "maxLength", value: 2 }],
   },
   {
     type: "button",
@@ -27,6 +29,7 @@ const controllers = [
         action: bfs,
       },
     ],
+    options: [{}],
   },
 ];
 
@@ -38,6 +41,22 @@ async function bfs(e) {
   const svg = document.querySelector("svg#search");
   const contents = svg.querySelectorAll(`g.g${key}`);
   const ll = contents.length;
+
+  // contents.forEach(async (content) => {
+  //   const circle = content.children[0];
+  //   circle.setAttribute("class", "compare");
+
+  //   const text = content.children[1];
+  //   const value = text.innerHTML;
+
+  //   await _timeout();
+
+  //   if (value === input.value) {
+  //     circle.setAttribute("class", "target");
+  //   } else {
+  //     circle.setAttribute("class", "disabled");
+  //   }
+  // });
 
   for (let i = 0; i < ll; i++) {
     const content = contents[i];

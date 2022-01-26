@@ -12,11 +12,13 @@ const controllers = [
         action: exportDefault,
       },
     ],
+    options: [{}],
   },
   {
-    type: "input",
+    type: "text",
     text: "",
     events: [{}],
+    options: [{ name: "maxLength", value: 2 }],
   },
   {
     type: "button",
@@ -27,6 +29,7 @@ const controllers = [
         action: binarySearch,
       },
     ],
+    options: [{}],
   },
 ];
 

@@ -12,6 +12,7 @@ const controllers = [
         action: exportDefault,
       },
     ],
+    options: [{}],
   },
   {
     type: "button",
@@ -22,6 +23,7 @@ const controllers = [
         action: bubbleSort,
       },
     ],
+    options: [{}],
   },
 ];
 

@@ -1,0 +1,56 @@
+svg#spp {
+}
+
+svg#spp circle {
+  fill: var(--content-background-color);
+  stroke-width: 3px;
+  stroke: var(--content-normal-border-color);
+}
+
+svg#spp text {
+  text-anchor: middle;
+  font-size: 28px;
+  alignment-baseline: central;
+  fill: var(--content-font-color);
+}
+
+svg#spp text.value {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+svg#spp path {
+  fill: none;
+  stroke-width: 2px;
+  stroke: var(--path-normal-stroke-color);
+}
+
+svg#spp path.arrow {
+  marker-end: url("#Triangle");
+}
+
+svg#spp circle.compare {
+  stroke: var(--content-compare-border-color);
+}
+
+svg#spp circle.target {
+  stroke: var(--content-target-border-color);
+}
+
+svg#spp circle.disabled {
+  stroke: var(--content-disabled-border-color);
+}
+
+svg#spp path.target {
+  /* stroke: url("#navigate"); */
+  stroke: var(--path-target-stroke-color);
+  stroke-width: 5px;
+}
+
+svg linearGradient#navigate stop {
+  stop-color: var(--path-normal-stroke-color);
+}
+
+svg linearGradient#navigate stop:first-child {
+  stop-color: var(--path-target-stroke-color);
+}
