@@ -50,15 +50,28 @@ async function kruskal(e) {
     .querySelectorAll("path")
     .forEach((element) => {
       const [a, b] = element.dataset.nodes.split(",");
+      const from = document.querySelector(`circle#${a}.c${key}`);
       parents[a] = a;
+
+      const to = document.querySelector(`circle#${b}.c${key}`);
       parents[b] = b;
-      lines.push([parseInt(element.dataset.value), a, b, element]);
+      lines.push([
+        parseInt(element.dataset.value),
+        { id: a, element: from },
+        { id: b, element: to },
+        element,
+      ]);
     });
 
   lines.sort((a, b) => a[0] - b[0]);
 
   while (lines.length) {
-    const [value, from, to, element] = lines.shift();
+    const [
+      value,
+      { id: from, element: fromElement },
+      { id: to, element: toElement },
+      element,
+    ] = lines.shift();
     element.classList.add("compare");
 
     await _timeout();
@@ -66,10 +79,8 @@ async function kruskal(e) {
     if (getParent(parents, from) !== getParent(parents, to)) {
       union(parents, from, to);
 
-      document
-        .querySelector(`circle#${from}.c${key}`)
-        .classList.add("disabled");
-      document.querySelector(`circle#${to}.c${key}`).classList.add("disabled");
+      fromElement.classList.add("disabled");
+      toElement.classList.add("disabled");
 
       element.classList.add("target");
     }

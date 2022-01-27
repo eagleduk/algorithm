@@ -32,6 +32,12 @@ const connections = [
       x: 200 + LEFTPADDING,
       y: 100,
     },
+    events: [
+      {
+        type: "click",
+        action: selectTargetHandler,
+      },
+    ],
     connect: [
       {
         target: "B",
@@ -69,6 +75,12 @@ const connections = [
       x: 50 + LEFTPADDING,
       y: 170,
     },
+    events: [
+      {
+        type: "click",
+        action: selectTargetHandler,
+      },
+    ],
     connect: [
       {
         target: "A",
@@ -96,6 +108,12 @@ const connections = [
       x: 250 + LEFTPADDING,
       y: 250,
     },
+    events: [
+      {
+        type: "click",
+        action: selectTargetHandler,
+      },
+    ],
     connect: [
       {
         target: "A",
@@ -123,6 +141,12 @@ const connections = [
       x: 100 + LEFTPADDING,
       y: 450,
     },
+    events: [
+      {
+        type: "click",
+        action: selectTargetHandler,
+      },
+    ],
     connect: [
       {
         target: "A",
@@ -164,6 +188,12 @@ const connections = [
       x: 320 + LEFTPADDING,
       y: 320,
     },
+    events: [
+      {
+        type: "click",
+        action: selectTargetHandler,
+      },
+    ],
     connect: [
       {
         target: "C",
@@ -191,6 +221,12 @@ const connections = [
       x: 400 + LEFTPADDING,
       y: 400,
     },
+    events: [
+      {
+        type: "click",
+        action: selectTargetHandler,
+      },
+    ],
     connect: [
       {
         target: "A",
@@ -232,6 +268,12 @@ const connections = [
       x: 520 + LEFTPADDING,
       y: 460,
     },
+    events: [
+      {
+        type: "click",
+        action: selectTargetHandler,
+      },
+    ],
     connect: [
       {
         target: "F",
@@ -253,6 +295,12 @@ const connections = [
       x: 420 + LEFTPADDING,
       y: 520,
     },
+    events: [
+      {
+        type: "click",
+        action: selectTargetHandler,
+      },
+    ],
     connect: [
       {
         target: "D",
@@ -276,52 +324,68 @@ const connections = [
   },
 ];
 
+function selectTargetHandler(e) {
+  document
+    .querySelector("g.selectedContent")
+    ?.classList.remove("selectedContent");
+
+  e.target.parentNode.classList.add("selectedContent");
+}
+
 async function dijkstra(e) {
+  const selectedContent = document.querySelector("g.selectedContent");
+  if (!selectedContent) return;
+
   e.target.disabled = true;
   const key = e.target.dataset.key;
+
+  const selectID = selectedContent.id;
+
   const svg = document.querySelector("svg#spp");
+  const paths = svg.querySelector(`g#lineGroup`);
+  const contentGroups = svg.querySelectorAll(`g.g${key}`);
 
+  const contents = {};
   const check = [];
-  const selectID = "A";
 
-  document.querySelectorAll(`g.g${key}`).forEach((contentGroup) => {
+  contentGroups.forEach((contentGroup) => {
+    const id = contentGroup.id;
+    contents[id] = contentGroup.children;
+
     const circle = contentGroup.children[0];
     const label = contentGroup.children[1];
 
-    circle.id === selectID ? (label.innerHTML = 0) : (label.innerHTML = "Inf");
+    contentGroup.id === selectID
+      ? (label.innerHTML = 0)
+      : (label.innerHTML = "Inf");
   });
   check.push(selectID);
 
   while (check.length) {
     const source = check.shift();
 
-    const circle = document.querySelector(`circle#${source}.c${key}`);
+    const [circle, label] = contents[source];
+
     circle.classList.add("target");
 
     const targets = circle.dataset.targets.split(",");
     const targetLength = targets.length;
 
-    const label = document.querySelector(`text#${source}_label.l${key}`);
     const value = parseInt(label.innerHTML, 0);
 
     for (let i = 0; i < targetLength; i++) {
       const targetID = targets[i];
-
-      const targetCircle = document.querySelector(`circle#${targetID}.c${key}`);
+      const [targetCircle, targetLabel] = contents[targetID];
       targetCircle.classList.add("compare");
 
-      const targetLabel = document.querySelector(
-        `text#${targetID}_label.l${key}`
-      );
-
-      const targetPath = document.querySelector(
+      const targetPath = paths.querySelector(
         `path#from${source}_to${targetID}_path.p${key}`
       );
-      // targetPath.classList.add("target");
       targetPath.setAttribute("class", `p${key} target`);
+
       await _timeout();
 
-      const targetText = document.querySelector(
+      const targetText = paths.querySelector(
         `text#from${source}_to${targetID}_text.v${key}`
       );
       const targetValue = parseInt(targetText.innerHTML, 0);
@@ -336,7 +400,6 @@ async function dijkstra(e) {
         }
       }
 
-      // targetPath.classList.remove("target");
       targetPath.setAttribute("class", `p${key} arrow`);
       targetCircle.classList.remove("compare");
     }

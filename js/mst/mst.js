@@ -257,10 +257,7 @@ function render(time) {
     nodeElement.removeChild(nodeElement.firstChild);
 
   nodes.forEach(({ id, location: { x: cx, y: cy } }) => {
-    const circle = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "circle"
-    );
+    const circle = document.createElementNS(NAMESPACEURI, "circle");
 
     circle.id = id;
     circle.setAttribute("cx", cx);
@@ -269,10 +266,7 @@ function render(time) {
     circle.setAttribute("class", `c${time}`);
     circle.dataset.targets = "";
 
-    const label = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "text"
-    );
+    const label = document.createElementNS(NAMESPACEURI, "text");
     label.setAttribute("x", cx);
     label.setAttribute("y", cy);
     label.setAttribute("class", `l${time}`);
@@ -300,7 +294,7 @@ function render(time) {
     const { cx: toX, cy: toY } = toElement.attributes;
     const { cx: fromX, cy: fromY } = fromElement.attributes;
 
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const line = document.createElementNS(NAMESPACEURI, "path");
     line.setAttribute(
       "d",
       `M${fromX.value} ${fromY.value} ${toX.value} ${toY.value}`
@@ -310,7 +304,7 @@ function render(time) {
     line.dataset.value = value;
     line.id = `from${from}_to${to}_path`;
 
-    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    const text = document.createElementNS(NAMESPACEURI, "text");
     text.setAttribute("x", x);
     text.setAttribute("y", y);
     text.setAttribute("class", `value v${time}`);

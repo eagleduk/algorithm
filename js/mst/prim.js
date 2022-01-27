@@ -36,18 +36,35 @@ async function prim(e) {
     .querySelector("g#nodes")
     .querySelectorAll("circle")
     .forEach((element) => {
-      const id = element.id;
+      const source = element.id;
       Array.from(element.dataset.targets).forEach((target) => {
+        let targetElement = document.querySelector(`circle#${target}.c${key}`);
         let element;
-        if (document.querySelector(`path#from${id}_to${target}_path`)) {
-          element = document.querySelector(`path#from${id}_to${target}_path`);
+        if (document.querySelector(`path#from${source}_to${target}_path`)) {
+          element = document.querySelector(
+            `path#from${source}_to${target}_path`
+          );
         } else {
-          element = document.querySelector(`path#from${target}_to${id}_path`);
+          element = document.querySelector(
+            `path#from${target}_to${source}_path`
+          );
         }
         const value = element.dataset.value;
-        nodes[id]
-          ? nodes[id].push([parseInt(value), id, target, element])
-          : (nodes[id] = [[parseInt(value), id, target, element]]);
+        nodes[source]
+          ? nodes[source].push([
+              parseInt(value),
+              { id: source, element },
+              { id: target, element: targetElement },
+              element,
+            ])
+          : (nodes[source] = [
+              [
+                parseInt(value),
+                { id: source, element },
+                { id: target, element: targetElement },
+                element,
+              ],
+            ]);
       });
     });
 
@@ -61,9 +78,14 @@ async function prim(e) {
     .classList.add("disabled");
 
   while (lines.length) {
-    const [value, from, to, element] = lines.shift();
-    document.querySelector(`circle#${from}.c${key}`).classList.add("target");
-    document.querySelector(`circle#${to}.c${key}`).classList.add("target");
+    const [
+      value,
+      { id: from, element: fromElement },
+      { id: to, element: toElement },
+      element,
+    ] = lines.shift();
+    fromElement.classList.add("target");
+    toElement.classList.add("target");
 
     element.classList.add("compare");
     await _timeout();
@@ -74,11 +96,11 @@ async function prim(e) {
       lines.sort((a, b) => a[0] - b[0]);
 
       element.classList.add("target");
-      document.querySelector(`circle#${to}.c${key}`).classList.add("disabled");
+      toElement.classList.add("disabled");
     }
     element.classList.remove("compare");
-    document.querySelector(`circle#${from}.c${key}`).classList.remove("target");
-    document.querySelector(`circle#${to}.c${key}`).classList.remove("target");
+    fromElement.classList.remove("target");
+    toElement.classList.remove("target");
   }
 
   e.target.disabled = false;

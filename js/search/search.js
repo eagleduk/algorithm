@@ -37,16 +37,16 @@ function renderArray(time, isSort = false) {
   if (isSort) arr.sort((a, b) => a - b);
 
   arr.forEach((value, index) => {
-    const g1 = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    const g1 = document.createElementNS(NAMESPACEURI, "g");
     g1.setAttribute("class", `g${time}`);
 
-    let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    let rect = document.createElementNS(NAMESPACEURI, "rect");
     rect.setAttribute("x", index * RECTWIDTH + 15 * index + 100);
     rect.setAttribute("y", TOPPADDING);
     rect.setAttribute("width", RECTWIDTH);
     rect.setAttribute("height", RECTWIDTH);
 
-    let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    let text = document.createElementNS(NAMESPACEURI, "text");
     text.setAttribute(
       "x",
       index * RECTWIDTH + 15 * index + 100 + RECTWIDTH / 2
@@ -69,26 +69,20 @@ function renderTree(time) {
   let parents = [];
 
   const width = svg.clientWidth;
-  const pathGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  const pathGroup = document.createElementNS(NAMESPACEURI, "g");
   svg.appendChild(pathGroup);
 
-  const rootNode = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "circle"
-  );
+  const rootNode = document.createElementNS(NAMESPACEURI, "circle");
   rootNode.setAttribute("cx", width / 2);
   rootNode.setAttribute("cy", TOPPADDING);
   rootNode.setAttribute("r", CIRCLERADIUS);
 
-  const rootValue = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "text"
-  );
+  const rootValue = document.createElementNS(NAMESPACEURI, "text");
   rootValue.setAttribute("x", width / 2);
   rootValue.setAttribute("y", TOPPADDING);
   rootValue.innerHTML = parseInt(Math.random() * 99, 0) + 1;
 
-  const rootGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  const rootGroup = document.createElementNS(NAMESPACEURI, "g");
   rootGroup.setAttribute("class", `g${time}`);
   rootGroup.appendChild(rootNode);
   rootGroup.appendChild(rootValue);
@@ -102,24 +96,15 @@ function renderTree(time) {
     let temp = [];
 
     for (let i2 = 0; i2 < Math.pow(2, i); i2++) {
-      let nodeGroup = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "g"
-      );
+      let nodeGroup = document.createElementNS(NAMESPACEURI, "g");
       nodeGroup.setAttribute("class", `g${time}`);
 
-      let circle = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "circle"
-      );
+      let circle = document.createElementNS(NAMESPACEURI, "circle");
       circle.setAttribute("cx", ww * (i2 * 2 + 1));
       circle.setAttribute("cy", hh);
       circle.setAttribute("r", CIRCLERADIUS);
 
-      let nodeValue = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "text"
-      );
+      let nodeValue = document.createElementNS(NAMESPACEURI, "text");
       nodeValue.setAttribute("x", ww * (i2 * 2 + 1));
       nodeValue.setAttribute("y", hh);
       nodeValue.innerHTML = parseInt(Math.random() * 99, 0) + 1;
@@ -131,7 +116,7 @@ function renderTree(time) {
 
       let parentIndex = Math.floor(i2 / 2);
       let { x, y } = parents[parentIndex];
-      let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      let path = document.createElementNS(NAMESPACEURI, "path");
       path.setAttribute("d", `M${x} ${y} L${ww * (i2 * 2 + 1)} ${hh}`);
 
       pathGroup.appendChild(path);

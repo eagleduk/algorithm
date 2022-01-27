@@ -45,54 +45,43 @@ function render(connections, time) {
 
   while (svg.hasChildNodes()) svg.removeChild(svg.firstChild);
 
-  const lineGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  const lineGroup = document.createElementNS(NAMESPACEURI, "g");
+  lineGroup.id = `lineGroup`;
   svg.appendChild(lineGroup);
 
-  connections.forEach(({ id, location: { x: cx, y: cy }, connect }) => {
-    const contentGroup = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "g"
-    );
+  connections.forEach(({ id, location: { x: cx, y: cy }, connect, events }) => {
+    const contentGroup = document.createElementNS(NAMESPACEURI, "g");
     contentGroup.setAttribute("class", `g${time}`);
-    const targets = [];
-    const circle = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "circle"
-    );
+    contentGroup.id = id;
 
-    circle.id = id;
+    const targets = [];
+    const circle = document.createElementNS(NAMESPACEURI, "circle");
+
     circle.setAttribute("cx", cx);
     circle.setAttribute("cy", cy);
     circle.setAttribute("r", CIRCLERADUIS);
     circle.setAttribute("class", `c${time}`);
-    circle.addEventListener("click", (e) => {
-      console.log(e.target);
+    events.forEach(({ type, action }) => {
+      circle.addEventListener(type, action);
     });
 
-    const label = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "text"
-    );
+    const label = document.createElementNS(NAMESPACEURI, "text");
     label.setAttribute("x", cx);
     label.setAttribute("y", cy);
     label.setAttribute("class", `l${time}`);
     label.innerHTML = id;
     label.id = `${id}_label`;
-    label.addEventListener("click", (e) => console.log(circle));
+    events.forEach(({ type, action }) => {
+      label.addEventListener(type, action);
+    });
 
     connect.forEach(({ target, path, value, position: { x, y } }) => {
-      const line = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "path"
-      );
+      const line = document.createElementNS(NAMESPACEURI, "path");
       line.setAttribute("d", path);
       line.setAttribute("class", `arrow p${time}`);
       line.id = `from${id}_to${target}_path`;
 
-      const text = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "text"
-      );
+      const text = document.createElementNS(NAMESPACEURI, "text");
       text.setAttribute("x", x);
       text.setAttribute("y", y);
       text.setAttribute("class", `value v${time}`);

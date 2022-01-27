@@ -166,7 +166,9 @@
 
         <div>
             <header>
-                Shortest Path > <span id="title">bubble</span>
+                <span>
+                    Shortest Path > <span id="title">bubble</span>
+                </span>
             </header>
 
             <article></article>
@@ -182,7 +184,8 @@
                 <defs>
                     <linearGradient id="navigate">
                         <stop offset="0%">
-                            <animate attributeName="offset" dur="2.5s" from="0" to="1" repeatCount="indefinite" />
+                            <animate attributeName="offset" dur="2.5s" begin="0s" from="0" to="1"
+                                repeatCount="indefinite" restart="always" />
                         </stop>
                         <stop offset="0%" />
                         <stop offset="43%" />
