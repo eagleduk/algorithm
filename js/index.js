@@ -1,5 +1,12 @@
 const NAMESPACEURI = "http://www.w3.org/2000/svg";
 
+const SORTLABEL = "sort";
+const SEARCHLABEL = "search";
+const SPPLABEL = "navigate";
+const MSTLABEL = "find";
+
+const RERENDER = "re-render";
+
 document.querySelectorAll("details").forEach((element) => {
   element.addEventListener("toggle", (e) => {
     if (e.target.open) {

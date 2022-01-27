@@ -1,5 +1,5 @@
 const TOPPADDING = 0;
-const LEFTPADDING = 100;
+const LEFTPADDING = 10;
 
 const CIRCLERADUIS = 25;
 

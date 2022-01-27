@@ -5,7 +5,7 @@ const RECTWIDTH = 54;
 const CIRCLERADIUS = 30;
 
 const TREEDEPTH = 5;
-const LENGTH = 17;
+const LENGTH = 10;
 
 async function loadModule() {
   const name = globalThis.location.hash.slice(1);
@@ -41,16 +41,13 @@ function renderArray(time, isSort = false) {
     g1.setAttribute("class", `g${time}`);
 
     let rect = document.createElementNS(NAMESPACEURI, "rect");
-    rect.setAttribute("x", index * RECTWIDTH + 15 * index + 100);
+    rect.setAttribute("x", index * RECTWIDTH + 15 * index + 10);
     rect.setAttribute("y", TOPPADDING);
     rect.setAttribute("width", RECTWIDTH);
     rect.setAttribute("height", RECTWIDTH);
 
     let text = document.createElementNS(NAMESPACEURI, "text");
-    text.setAttribute(
-      "x",
-      index * RECTWIDTH + 15 * index + 100 + RECTWIDTH / 2
-    );
+    text.setAttribute("x", index * RECTWIDTH + 15 * index + 10 + RECTWIDTH / 2);
     text.setAttribute("y", TOPPADDING + RECTWIDTH / 2);
     text.innerHTML = value;
 

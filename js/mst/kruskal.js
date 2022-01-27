@@ -5,7 +5,7 @@ const exportDefault = () => {
 const controllers = [
   {
     type: "button",
-    text: "render",
+    text: RERENDER,
     events: [
       {
         event: "click",
@@ -15,7 +15,7 @@ const controllers = [
   },
   {
     type: "button",
-    text: "go",
+    text: MSTLABEL,
     events: [
       {
         event: "click",

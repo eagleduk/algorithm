@@ -5,7 +5,7 @@ const exportDefault = () => {
 const controllers = [
   {
     type: "button",
-    text: "render",
+    text: RERENDER,
     events: [
       {
         event: "click",
@@ -16,7 +16,7 @@ const controllers = [
   },
   {
     type: "button",
-    text: "play",
+    text: SORTLABEL,
     events: [
       {
         event: "click",

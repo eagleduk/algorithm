@@ -1,4 +1,4 @@
-const LEFTPADDING = 100;
+const LEFTPADDING = -160;
 const CIRCLERADUIS = 25;
 
 const connections = {

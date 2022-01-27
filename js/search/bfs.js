@@ -5,7 +5,7 @@ const exportDefault = () => {
 const controllers = [
   {
     type: "button",
-    text: "render",
+    text: RERENDER,
     events: [
       {
         event: "click",
@@ -22,7 +22,7 @@ const controllers = [
   },
   {
     type: "button",
-    text: "search",
+    text: SEARCHLABEL,
     events: [
       {
         event: "click",
@@ -34,9 +34,12 @@ const controllers = [
 ];
 
 async function bfs(e) {
+  const input = e.target.previousElementSibling;
+  const searchValue = input.value;
+  if (!searchValue.length) return;
+
   e.target.disabled = true;
   const key = e.target.dataset.key;
-  const input = e.target.previousElementSibling;
 
   const svg = document.querySelector("svg#search");
   const contents = svg.querySelectorAll(`g.g${key}`);
