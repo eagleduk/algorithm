@@ -1,11 +1,15 @@
-const TOPPADDING = 35;
-const HEIGHTGAP = 70;
+const NOINPUTVALUE = "Please input Search Value.";
 
 const RECTWIDTH = 54;
 const CIRCLERADIUS = 30;
+const RECTGAP = 15;
 
 const TREEDEPTH = 5;
 const LENGTH = 10;
+
+const TOPPADDING = 35;
+const LEFTPADDING = (1200 - (RECTWIDTH * LENGTH + RECTGAP * (LENGTH - 1))) / 2;
+const HEIGHTGAP = 70;
 
 async function loadModule() {
   const name = globalThis.location.hash.slice(1);
@@ -41,13 +45,16 @@ function renderArray(time, isSort = false) {
     g1.setAttribute("class", `g${time}`);
 
     let rect = document.createElementNS(NAMESPACEURI, "rect");
-    rect.setAttribute("x", index * RECTWIDTH + 15 * index + 10);
+    rect.setAttribute("x", index * RECTWIDTH + RECTGAP * index + LEFTPADDING);
     rect.setAttribute("y", TOPPADDING);
     rect.setAttribute("width", RECTWIDTH);
     rect.setAttribute("height", RECTWIDTH);
 
     let text = document.createElementNS(NAMESPACEURI, "text");
-    text.setAttribute("x", index * RECTWIDTH + 15 * index + 10 + RECTWIDTH / 2);
+    text.setAttribute(
+      "x",
+      index * RECTWIDTH + RECTGAP * index + LEFTPADDING + RECTWIDTH / 2
+    );
     text.setAttribute("y", TOPPADDING + RECTWIDTH / 2);
     text.innerHTML = value;
 

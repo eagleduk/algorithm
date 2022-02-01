@@ -27,3 +27,14 @@ async function _timeout(ms = 2000, fn) {
     }, ms);
   });
 }
+
+async function errorMessage(msg) {
+  const notification = document.querySelector("div.notification");
+
+  const span = notification.querySelector("span");
+  span.innerHTML = msg;
+
+  notification.classList.add("action");
+
+  _timeout(5000, () => notification.classList.remove("action"));
+}

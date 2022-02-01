@@ -68,4 +68,7 @@
   --path-target-stroke-color: yellowgreen;
 
   --content-font-color: black;
+
+  /* notification */
+  --notification-normal-background-color: lightsalmon;
 }

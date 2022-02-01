@@ -334,7 +334,10 @@ function selectTargetHandler(e) {
 
 async function dijkstra(e) {
   const selectedContent = document.querySelector("g.selectedContent");
-  if (!selectedContent) return;
+  if (!selectedContent) {
+    errorMessage("Please Select Start Node.");
+    return;
+  }
 
   e.target.disabled = true;
   const key = e.target.dataset.key;

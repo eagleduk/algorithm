@@ -74,7 +74,10 @@ async function search(arrs, input) {
 async function binarySearch(e) {
   const input = e.target.previousElementSibling;
   const searchValue = input.value;
-  if (!searchValue.length) return;
+  if (!searchValue.length) {
+    errorMessage(NOINPUTVALUE);
+    return;
+  }
 
   e.target.disabled = true;
   const key = e.target.dataset.key;
