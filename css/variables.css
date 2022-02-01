@@ -61,6 +61,8 @@
 
   --content-disabled-border-color: wheat;
 
+  --content-selected-border-color: rgb(8, 161, 231);
+
   --path-normal-stroke-color: black;
 
   --path-target-stroke-color: yellowgreen;

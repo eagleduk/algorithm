@@ -28,17 +28,37 @@ body {
   flex-direction: column;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+main {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-a:visited {
-  color: inherit;
+footer {
+  height: 80px;
+  background-color: var(--footer-background-color);
+  display: flex;
 }
-/*
-*****************       Header
-*/
+
+nav {
+  width: 340px;
+  background-color: var(--navgation-background-color);
+}
+
+details {
+  background-color: var(--menu-background-color);
+}
+
+details > summary {
+  list-style-type: none;
+  cursor: pointer;
+  font-size: 22px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
 
 header {
   width: 100%;
@@ -53,24 +73,46 @@ header {
   box-sizing: border-box;
 }
 
+article {
+  width: 100%;
+  height: 80px;
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  /* width: 120px; */
+  /* height: 40px; */
+  margin: 5px 10px;
+  padding: 10px 20px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+/*
+*****************       Header
+*/
+
 header span {
   font-style: italic;
   font-weight: 800;
 }
 
-span#title {
+header span#title {
   text-transform: capitalize;
 }
 
 /*
 *****************       Main
 */
-
-main {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
 
 main div {
   display: flex;
@@ -90,6 +132,7 @@ main div.home-index {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   background-image: var(--home-background-image);
+  align-items: stretch;
 }
 
 main div.home-index section {
@@ -146,25 +189,8 @@ main div.home-index a span {
 }
 
 /*
-*****************       Control Panel
-*/
-
-article {
-  width: 100%;
-  height: 80px;
-  background-color: antiquewhite;
-  display: flex;
-  align-items: center;
-}
-
-/*
 *****************       Left Menu
 */
-
-nav {
-  width: 340px;
-  background-color: var(--navgation-background-color);
-}
 
 a.logo {
   display: flex;
@@ -188,21 +214,6 @@ a.logo:hover {
 
 a.logo:visited {
   color: var(--logo-font-color);
-}
-
-details {
-  background-color: var(--menu-background-color);
-}
-
-details > summary {
-  list-style-type: none;
-  cursor: pointer;
-  font-size: 22px;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
 }
 
 details > summary:hover {
@@ -243,15 +254,8 @@ ul.sub-menu li a {
 }
 
 /*
-*****************       footer
+*****************       input
 */
-
-input {
-  /* width: 120px; */
-  /* height: 40px; */
-  margin: 5px 10px;
-  padding: 10px 20px;
-}
 
 input[type="text"] {
   width: 26px;
@@ -288,10 +292,22 @@ input[type="button"]:disabled {
 *****************       footer
 */
 
-footer {
-  height: 80px;
-  background-color: var(--footer-background-color);
+footer div.notification {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 110px;
+  right: 40px;
+  background-color: lightsalmon;
+  height: 80px;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+footer div.notification span {
+  font-size: 26px;
+  font-weight: 700;
 }
 
 footer div {

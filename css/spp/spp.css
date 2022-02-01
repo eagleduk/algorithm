@@ -8,7 +8,7 @@ svg#spp circle {
   cursor: pointer;
 }
 svg#spp g.selectedContent circle {
-  stroke: red;
+  stroke: var(--content-selected-border-color);
 }
 
 svg#spp circle.compare {
