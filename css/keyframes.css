@@ -1,11 +1,8 @@
 @keyframes showMessage {
   20% {
-    left: 80%;
+    right: 20px;
   }
   80% {
-    left: 80%;
-  }
-  100% {
-    left: 100%;
+    right: 20px;
   }
 }

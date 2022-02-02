@@ -17,6 +17,16 @@ document.querySelectorAll("details").forEach((element) => {
   });
 });
 
+document.querySelectorAll("div.home-index img").forEach((element) => {
+  const { normalSrc, hoverSrc } = element.dataset;
+  element.addEventListener("mouseover", (e) => {
+    element.src = hoverSrc;
+  });
+  element.addEventListener("mouseout", (e) => {
+    element.src = normalSrc;
+  });
+});
+
 async function _timeout(ms = 2000, fn) {
   await new Promise((resolve, reject) => {
     setTimeout((e) => {

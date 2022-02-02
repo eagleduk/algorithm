@@ -142,12 +142,20 @@ main div.home-index {
 }
 
 main div.home-index section {
-  margin: 20px 80px;
+  margin: 20px 52px;
   border: 2px solid var(--border-color-black);
   border-radius: 25px;
   display: flex;
   padding: 0 40px;
   background-color: var(--home-panel-backgound-color);
+}
+
+main div.home div.home-index img {
+  width: 100%;
+}
+
+main div.home div.home-index img:hover {
+  width: 120%;
 }
 
 main div.home-index section > div {
@@ -348,11 +356,12 @@ footer div.notification {
   align-items: center;
   position: fixed;
   top: 60px;
-  left: 100%;
+  /* left: 100%; */
   background-color: var(--notification-normal-background-color);
   height: 80px;
   border-radius: 10px;
   padding: 0 20px;
+  right: -360px;
   display: none;
 }
 
@@ -366,5 +375,5 @@ footer div.notification span {
 
 footer div.notification.action {
   display: flex;
-  animation: showMessage 5s ease-in-out;
+  animation: showMessage 5s ease-in-out infinite;
 }
