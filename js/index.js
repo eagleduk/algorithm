@@ -5,7 +5,7 @@ const SEARCHLABEL = "search";
 const SPPLABEL = "navigate";
 const MSTLABEL = "find";
 
-const RERENDER = "re-render";
+const RERENDER = "render";
 
 document.querySelectorAll("details").forEach((element) => {
   element.addEventListener("toggle", (e) => {

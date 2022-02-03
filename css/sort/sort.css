@@ -43,11 +43,10 @@ span.content.target {
   border-color: var(--content-target-border-color);
 }
 
-span.content.delete {
-  border-color: none;
+span.content.disabled {
+  border-color: var(--content-disabled-border-color);
 }
 
-span.content.delete::before {
-  content: "";
-  font-size: 30px;
+span.content.selected {
+  border-color: var(--content-selected-border-color);
 }

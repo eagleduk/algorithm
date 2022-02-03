@@ -40,7 +40,6 @@ async function selectionSort(e) {
     let minIndex = standard;
     let minContent = contents[minIndex];
     let minValue = parseInt(minContent.dataset.value, 0);
-    //minContent.classList.add("target");
 
     for (let index = standard; index < ll; index++) {
       let sourceContent = contents[index];
@@ -64,6 +63,8 @@ async function selectionSort(e) {
 
     sourceContent.classList.remove("target");
     targetContent.classList.remove("standard");
+
+    targetContent.classList.add("disabled");
   }
   e.target.disabled = false;
 }

@@ -1,3 +1,4 @@
+const TOPPADDING = -40;
 const LEFTPADDING = -160;
 const CIRCLERADUIS = 25;
 
@@ -7,63 +8,63 @@ const connections = {
       id: "A",
       location: {
         x: 200 + LEFTPADDING,
-        y: 200,
+        y: 200 + TOPPADDING,
       },
     },
     {
       id: "B",
       location: {
         x: 500 + LEFTPADDING,
-        y: 100,
+        y: 100 + TOPPADDING,
       },
     },
     {
       id: "C",
       location: {
         x: 800 + LEFTPADDING,
-        y: 100,
+        y: 100 + TOPPADDING,
       },
     },
     {
       id: "D",
       location: {
         x: 480 + LEFTPADDING,
-        y: 250,
+        y: 250 + TOPPADDING,
       },
     },
     {
       id: "E",
       location: {
         x: 650 + LEFTPADDING,
-        y: 300,
+        y: 300 + TOPPADDING,
       },
     },
     {
       id: "F",
       location: {
         x: 380 + LEFTPADDING,
-        y: 380,
+        y: 380 + TOPPADDING,
       },
     },
     {
       id: "G",
       location: {
         x: 590 + LEFTPADDING,
-        y: 420,
+        y: 420 + TOPPADDING,
       },
     },
     {
       id: "H",
       location: {
         x: 800 + LEFTPADDING,
-        y: 360,
+        y: 360 + TOPPADDING,
       },
     },
     {
       id: "I",
       location: {
         x: 520 + LEFTPADDING,
-        y: 550,
+        y: 550 + TOPPADDING,
       },
     },
   ],
@@ -73,8 +74,7 @@ const connections = {
       from: "B",
       text: {
         x: 350 + LEFTPADDING,
-        y: 130,
-        value: 1,
+        y: 130 + TOPPADDING,
       },
     },
     {
@@ -82,8 +82,7 @@ const connections = {
       from: "D",
       text: {
         x: 350 + LEFTPADDING,
-        y: 210,
-        value: 2,
+        y: 210 + TOPPADDING,
       },
     },
     {
@@ -91,8 +90,7 @@ const connections = {
       from: "F",
       text: {
         x: 310 + LEFTPADDING,
-        y: 285,
-        value: 3,
+        y: 285 + TOPPADDING,
       },
     },
     {
@@ -100,8 +98,7 @@ const connections = {
       from: "C",
       text: {
         x: 660 + LEFTPADDING,
-        y: 80,
-        value: 4,
+        y: 80 + TOPPADDING,
       },
     },
     {
@@ -109,8 +106,7 @@ const connections = {
       from: "D",
       text: {
         x: 510 + LEFTPADDING,
-        y: 180,
-        value: 5,
+        y: 180 + TOPPADDING,
       },
     },
     {
@@ -118,8 +114,7 @@ const connections = {
       from: "E",
       text: {
         x: 590 + LEFTPADDING,
-        y: 195,
-        value: 6,
+        y: 195 + TOPPADDING,
       },
     },
     {
@@ -127,8 +122,7 @@ const connections = {
       from: "E",
       text: {
         x: 705 + LEFTPADDING,
-        y: 195,
-        value: 7,
+        y: 195 + TOPPADDING,
       },
     },
     {
@@ -136,8 +130,7 @@ const connections = {
       from: "H",
       text: {
         x: 785 + LEFTPADDING,
-        y: 230,
-        value: 8,
+        y: 230 + TOPPADDING,
       },
     },
     {
@@ -145,8 +138,7 @@ const connections = {
       from: "E",
       text: {
         x: 550 + LEFTPADDING,
-        y: 290,
-        value: 9,
+        y: 290 + TOPPADDING,
       },
     },
     {
@@ -154,8 +146,7 @@ const connections = {
       from: "F",
       text: {
         x: 410 + LEFTPADDING,
-        y: 305,
-        value: 10,
+        y: 305 + TOPPADDING,
       },
     },
     {
@@ -163,8 +154,7 @@ const connections = {
       from: "G",
       text: {
         x: 600 + LEFTPADDING,
-        y: 350,
-        value: 11,
+        y: 350 + TOPPADDING,
       },
     },
     {
@@ -172,8 +162,7 @@ const connections = {
       from: "G",
       text: {
         x: 490 + LEFTPADDING,
-        y: 385,
-        value: 12,
+        y: 385 + TOPPADDING,
       },
     },
     {
@@ -181,8 +170,7 @@ const connections = {
       from: "I",
       text: {
         x: 470 + LEFTPADDING,
-        y: 460,
-        value: 13,
+        y: 460 + TOPPADDING,
       },
     },
     {
@@ -190,8 +178,7 @@ const connections = {
       from: "H",
       text: {
         x: 690 + LEFTPADDING,
-        y: 375,
-        value: 14,
+        y: 375 + TOPPADDING,
       },
     },
     {
@@ -199,8 +186,7 @@ const connections = {
       from: "I",
       text: {
         x: 670 + LEFTPADDING,
-        y: 470,
-        value: 15,
+        y: 470 + TOPPADDING,
       },
     },
   ],
@@ -282,7 +268,7 @@ function render(time) {
   while (pathElement.hasChildNodes())
     pathElement.removeChild(pathElement.firstChild);
 
-  paths.forEach(({ to, from, text: { x, y, value: vv } }) => {
+  paths.forEach(({ to, from, text: { x, y } }) => {
     const toElement = document.querySelector(`circle#${to}.c${time}`);
     const fromElement = document.querySelector(`circle#${from}.c${time}`);
 

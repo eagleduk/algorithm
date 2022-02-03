@@ -1,4 +1,4 @@
-const TOPPADDING = 0;
+const TOPPADDING = -50;
 const LEFTPADDING = 10;
 
 const CIRCLERADUIS = 25;
@@ -75,7 +75,7 @@ function render(connections, time) {
       label.addEventListener(type, action);
     });
 
-    connect.forEach(({ target, path, value, position: { x, y } }) => {
+    connect.forEach(({ target, path, position: { x, y } }) => {
       const line = document.createElementNS(NAMESPACEURI, "path");
       line.setAttribute("d", path);
       line.setAttribute("class", `arrow p${time}`);

@@ -30,7 +30,7 @@ const connections = [
     id: "A",
     location: {
       x: 200 + LEFTPADDING,
-      y: 100,
+      y: 100 + TOPPADDING,
     },
     events: [
       {
@@ -41,31 +41,31 @@ const connections = [
     connect: [
       {
         target: "B",
-        path: `M${197.5 + LEFTPADDING} 97.5 ${47.5 + LEFTPADDING} 167.5`,
-        value: "1",
-        position: { x: 120 + LEFTPADDING, y: 120 },
+        path: `M${197.5 + LEFTPADDING} ${97.5 + TOPPADDING} ${
+          47.5 + LEFTPADDING
+        } ${167.5 + TOPPADDING}`,
+        position: { x: 120 + LEFTPADDING, y: 120 + TOPPADDING },
       },
       {
         target: "C",
-        path: `M${205 + LEFTPADDING} 100 ${255 + LEFTPADDING} 250`,
-        value: "2",
-        position: { x: 240 + LEFTPADDING, y: 170 },
+        path: `M${195 + LEFTPADDING} ${100 + TOPPADDING} ${245 + LEFTPADDING} ${
+          250 + TOPPADDING
+        }`,
+        position: { x: 210 + LEFTPADDING, y: 180 + TOPPADDING },
       },
       {
         target: "D",
-        path: `M${200 + LEFTPADDING} 105 Q${-130 + LEFTPADDING} 80 ${
-          100 + LEFTPADDING
-        } 450`,
-        value: "3",
-        position: { x: 20 + LEFTPADDING, y: 240 },
+        path: `M${200 + LEFTPADDING} ${95 + TOPPADDING} Q${
+          -140 + LEFTPADDING
+        } ${75 + TOPPADDING} ${95 + LEFTPADDING} ${455 + TOPPADDING}`,
+        position: { x: 0 + LEFTPADDING, y: 140 + TOPPADDING },
       },
       {
         target: "F",
-        path: `M${200 + LEFTPADDING} 105 Q${495 + LEFTPADDING} 80 ${
-          395 + LEFTPADDING
-        } 400`,
-        value: "4",
-        position: { x: 400 + LEFTPADDING, y: 200 },
+        path: `M${200 + LEFTPADDING} ${105 + TOPPADDING} Q${
+          495 + LEFTPADDING
+        } ${80 + TOPPADDING} ${395 + LEFTPADDING} ${400 + TOPPADDING}`,
+        position: { x: 400 + LEFTPADDING, y: 200 + TOPPADDING },
       },
     ],
   },
@@ -73,7 +73,7 @@ const connections = [
     id: "B",
     location: {
       x: 50 + LEFTPADDING,
-      y: 170,
+      y: 170 + TOPPADDING,
     },
     events: [
       {
@@ -84,21 +84,24 @@ const connections = [
     connect: [
       {
         target: "A",
-        path: `M${57.5 + LEFTPADDING} 172.5 ${207.5 + LEFTPADDING} 102.5`,
-        value: "5",
-        position: { x: 135 + LEFTPADDING, y: 150 },
+        path: `M${57.5 + LEFTPADDING} ${172.5 + TOPPADDING} ${
+          207.5 + LEFTPADDING
+        } ${102.5 + TOPPADDING}`,
+        position: { x: 135 + LEFTPADDING, y: 150 + TOPPADDING },
       },
       {
         target: "C",
-        path: `M${50 + LEFTPADDING} 165 ${250 + LEFTPADDING} 245`,
-        value: "6",
-        position: { x: 160 + LEFTPADDING, y: 195 },
+        path: `M${50 + LEFTPADDING} ${175 + TOPPADDING} ${250 + LEFTPADDING} ${
+          255 + TOPPADDING
+        }`,
+        position: { x: 140 + LEFTPADDING, y: 225 + TOPPADDING },
       },
       {
         target: "D",
-        path: `M${55 + LEFTPADDING} 170 ${105 + LEFTPADDING} 450`,
-        value: "7",
-        position: { x: 90 + LEFTPADDING, y: 300 },
+        path: `M${45 + LEFTPADDING} ${170 + TOPPADDING} ${95 + LEFTPADDING} ${
+          450 + TOPPADDING
+        }`,
+        position: { x: 55 + LEFTPADDING, y: 310 + TOPPADDING },
       },
     ],
   },
@@ -106,7 +109,7 @@ const connections = [
     id: "C",
     location: {
       x: 250 + LEFTPADDING,
-      y: 250,
+      y: 250 + TOPPADDING,
     },
     events: [
       {
@@ -117,21 +120,24 @@ const connections = [
     connect: [
       {
         target: "A",
-        path: `M${245 + LEFTPADDING} 250 ${195 + LEFTPADDING} 100`,
-        value: "8",
-        position: { x: 210 + LEFTPADDING, y: 180 },
+        path: `M${255 + LEFTPADDING} ${250 + TOPPADDING} ${205 + LEFTPADDING} ${
+          100 + TOPPADDING
+        }`,
+        position: { x: 240 + LEFTPADDING, y: 170 + TOPPADDING },
       },
       {
         target: "B",
-        path: `M${250 + LEFTPADDING} 255 ${50 + LEFTPADDING} 175`,
-        value: "9",
-        position: { x: 140 + LEFTPADDING, y: 225 },
+        path: `M${250 + LEFTPADDING} ${245 + TOPPADDING} ${50 + LEFTPADDING} ${
+          165 + TOPPADDING
+        }`,
+        position: { x: 160 + LEFTPADDING, y: 195 + TOPPADDING },
       },
       {
         target: "E",
-        path: `M${255 + LEFTPADDING} 250 ${325 + LEFTPADDING} 320`,
-        value: "10",
-        position: { x: 300 + LEFTPADDING, y: 275 },
+        path: `M${245 + LEFTPADDING} ${250 + TOPPADDING} ${315 + LEFTPADDING} ${
+          320 + TOPPADDING
+        }`,
+        position: { x: 275 + LEFTPADDING, y: 300 + TOPPADDING },
       },
     ],
   },
@@ -139,7 +145,7 @@ const connections = [
     id: "D",
     location: {
       x: 100 + LEFTPADDING,
-      y: 450,
+      y: 450 + TOPPADDING,
     },
     events: [
       {
@@ -150,35 +156,38 @@ const connections = [
     connect: [
       {
         target: "A",
-        path: `M${95 + LEFTPADDING} 455 Q${-140 + LEFTPADDING} 75 ${
-          200 + LEFTPADDING
-        } 95`,
-        value: "11",
-        position: { x: 0 + LEFTPADDING, y: 140 },
+        path: `M${100 + LEFTPADDING} ${450 + TOPPADDING}Q${
+          -130 + LEFTPADDING
+        } ${80 + TOPPADDING} ${200 + LEFTPADDING} ${105 + TOPPADDING}`,
+        position: { x: 20 + LEFTPADDING, y: 240 + TOPPADDING },
       },
       {
         target: "B",
-        path: `M${95 + LEFTPADDING} 450 ${45 + LEFTPADDING} 170`,
-        value: "12",
-        position: { x: 55 + LEFTPADDING, y: 310 },
+        path: `M${105 + LEFTPADDING} ${450 + TOPPADDING} ${55 + LEFTPADDING} ${
+          170 + TOPPADDING
+        }`,
+        position: { x: 90 + LEFTPADDING, y: 300 + TOPPADDING },
       },
       {
         target: "E",
-        path: `M${100 + LEFTPADDING} 455 ${320 + LEFTPADDING} 325`,
-        value: "13",
-        position: { x: 230 + LEFTPADDING, y: 395 },
+        path: `M${100 + LEFTPADDING} ${455 + TOPPADDING} ${320 + LEFTPADDING} ${
+          325 + TOPPADDING
+        }`,
+        position: { x: 230 + LEFTPADDING, y: 395 + TOPPADDING },
       },
       {
         target: "F",
-        path: `M${100 + LEFTPADDING} 445 ${400 + LEFTPADDING} 395`,
-        value: "14",
-        position: { x: 255 + LEFTPADDING, y: 405 },
+        path: `M${100 + LEFTPADDING} ${455 + TOPPADDING} ${400 + LEFTPADDING} ${
+          405 + TOPPADDING
+        }`,
+        position: { x: 280 + LEFTPADDING, y: 440 + TOPPADDING },
       },
       {
         target: "H",
-        path: `M${100 + LEFTPADDING} 445 ${420 + LEFTPADDING} 515`,
-        value: "15",
-        position: { x: 280 + LEFTPADDING, y: 470 },
+        path: `M${100 + LEFTPADDING} ${455 + TOPPADDING} ${420 + LEFTPADDING} ${
+          525 + TOPPADDING
+        }`,
+        position: { x: 260 + LEFTPADDING, y: 510 + TOPPADDING },
       },
     ],
   },
@@ -186,7 +195,7 @@ const connections = [
     id: "E",
     location: {
       x: 320 + LEFTPADDING,
-      y: 320,
+      y: 320 + TOPPADDING,
     },
     events: [
       {
@@ -197,21 +206,24 @@ const connections = [
     connect: [
       {
         target: "C",
-        path: `M${315 + LEFTPADDING} 320 ${245 + LEFTPADDING} 250`,
-        value: "16",
-        position: { x: 275 + LEFTPADDING, y: 300 },
+        path: `M${325 + LEFTPADDING} ${320 + TOPPADDING} ${255 + LEFTPADDING} ${
+          250 + TOPPADDING
+        }`,
+        position: { x: 300 + LEFTPADDING, y: 275 + TOPPADDING },
       },
       {
         target: "D",
-        path: `M${320 + LEFTPADDING} 315 ${100 + LEFTPADDING} 445`,
-        value: "17",
-        position: { x: 210 + LEFTPADDING, y: 365 },
+        path: `M${320 + LEFTPADDING} ${315 + TOPPADDING} ${100 + LEFTPADDING} ${
+          445 + TOPPADDING
+        }`,
+        position: { x: 210 + LEFTPADDING, y: 365 + TOPPADDING },
       },
       {
         target: "F",
-        path: `M${325 + LEFTPADDING} 317.5 ${405 + LEFTPADDING} 397.5`,
-        value: "18",
-        position: { x: 370 + LEFTPADDING, y: 345 },
+        path: `M${315 + LEFTPADDING} ${322.5 + TOPPADDING} ${
+          395 + LEFTPADDING
+        } ${402.5 + TOPPADDING}`,
+        position: { x: 350 + LEFTPADDING, y: 375 + TOPPADDING },
       },
     ],
   },
@@ -219,7 +231,7 @@ const connections = [
     id: "F",
     location: {
       x: 400 + LEFTPADDING,
-      y: 400,
+      y: 400 + TOPPADDING,
     },
     events: [
       {
@@ -230,35 +242,38 @@ const connections = [
     connect: [
       {
         target: "A",
-        path: `M${405 + LEFTPADDING} 400 Q${500 + LEFTPADDING} 75 ${
-          200 + LEFTPADDING
-        } 95`,
-        value: "19",
-        position: { x: 420 + LEFTPADDING, y: 160 },
+        path: `M${405 + LEFTPADDING} ${400 + TOPPADDING} Q${
+          500 + LEFTPADDING
+        } ${75 + TOPPADDING} ${200 + LEFTPADDING} ${95 + TOPPADDING}`,
+        position: { x: 420 + LEFTPADDING, y: 160 + TOPPADDING },
       },
       {
         target: "D",
-        path: `M${400 + LEFTPADDING} 405 ${100 + LEFTPADDING} 455`,
-        value: "20",
-        position: { x: 280 + LEFTPADDING, y: 440 },
+        path: `M${400 + LEFTPADDING} ${395 + TOPPADDING} ${100 + LEFTPADDING} ${
+          445 + TOPPADDING
+        }`,
+        position: { x: 255 + LEFTPADDING, y: 405 + TOPPADDING },
       },
       {
         target: "E",
-        path: `M${395 + LEFTPADDING} 402.5 ${315 + LEFTPADDING} 322.5`,
-        value: "21",
-        position: { x: 350 + LEFTPADDING, y: 375 },
+        path: `M${405 + LEFTPADDING} ${397.5 + TOPPADDING} ${
+          325 + LEFTPADDING
+        } ${317.5 + TOPPADDING}`,
+        position: { x: 370 + LEFTPADDING, y: 345 + TOPPADDING },
       },
       {
         target: "G",
-        path: `M${405 + LEFTPADDING} 400 ${525 + LEFTPADDING} 460`,
-        value: "22",
-        position: { x: 470 + LEFTPADDING, y: 415 },
+        path: `M${395 + LEFTPADDING} ${405 + TOPPADDING} ${515 + LEFTPADDING} ${
+          465 + TOPPADDING
+        }`,
+        position: { x: 455 + LEFTPADDING, y: 450 + TOPPADDING },
       },
       {
         target: "H",
-        path: `M${395 + LEFTPADDING} 400 ${415 + LEFTPADDING} 520`,
-        value: "23",
-        position: { x: 390 + LEFTPADDING, y: 460 },
+        path: `M${395 + LEFTPADDING} ${400 + TOPPADDING} ${415 + LEFTPADDING} ${
+          520 + TOPPADDING
+        }`,
+        position: { x: 390 + LEFTPADDING, y: 460 + TOPPADDING },
       },
     ],
   },
@@ -266,7 +281,7 @@ const connections = [
     id: "G",
     location: {
       x: 520 + LEFTPADDING,
-      y: 460,
+      y: 460 + TOPPADDING,
     },
     events: [
       {
@@ -277,15 +292,17 @@ const connections = [
     connect: [
       {
         target: "F",
-        path: `M${515 + LEFTPADDING} 465 ${395 + LEFTPADDING} 405`,
-        value: "24",
-        position: { x: 455 + LEFTPADDING, y: 450 },
+        path: `M${525 + LEFTPADDING} ${460 + TOPPADDING} ${405 + LEFTPADDING} ${
+          400 + TOPPADDING
+        }`,
+        position: { x: 470 + LEFTPADDING, y: 415 + TOPPADDING },
       },
       {
         target: "H",
-        path: `M${520 + LEFTPADDING} 465 ${420 + LEFTPADDING} 525`,
-        value: "25",
-        position: { x: 470 + LEFTPADDING, y: 515 },
+        path: `M${520 + LEFTPADDING} ${455 + TOPPADDING} ${420 + LEFTPADDING} ${
+          515 + TOPPADDING
+        }`,
+        position: { x: 455 + LEFTPADDING, y: 480 + TOPPADDING },
       },
     ],
   },
@@ -293,7 +310,7 @@ const connections = [
     id: "H",
     location: {
       x: 420 + LEFTPADDING,
-      y: 520,
+      y: 520 + TOPPADDING,
     },
     events: [
       {
@@ -304,21 +321,24 @@ const connections = [
     connect: [
       {
         target: "D",
-        path: `M${420 + LEFTPADDING} 525 ${100 + LEFTPADDING} 455`,
-        value: "26",
-        position: { x: 260 + LEFTPADDING, y: 510 },
+        path: `M${420 + LEFTPADDING} ${515 + TOPPADDING} ${100 + LEFTPADDING} ${
+          445 + TOPPADDING
+        }`,
+        position: { x: 280 + LEFTPADDING, y: 470 + TOPPADDING },
       },
       {
         target: "F",
-        path: `M${425 + LEFTPADDING} 520 ${405 + LEFTPADDING} 400`,
-        value: "27",
-        position: { x: 430 + LEFTPADDING, y: 460 },
+        path: `M${425 + LEFTPADDING} ${520 + TOPPADDING} ${405 + LEFTPADDING} ${
+          400 + TOPPADDING
+        }`,
+        position: { x: 430 + LEFTPADDING, y: 460 + TOPPADDING },
       },
       {
         target: "G",
-        path: `M${420 + LEFTPADDING} 515 ${520 + LEFTPADDING} 455`,
-        value: "28",
-        position: { x: 455 + LEFTPADDING, y: 480 },
+        path: `M${420 + LEFTPADDING} ${525 + TOPPADDING} ${520 + LEFTPADDING} ${
+          465 + TOPPADDING
+        }`,
+        position: { x: 470 + LEFTPADDING, y: 515 + TOPPADDING },
       },
     ],
   },

@@ -55,6 +55,8 @@ async function bubbleSort(e) {
       targetContent.classList.remove("target");
       sourceContent.classList.remove("target");
     }
+    const disabledContent = contents[ll - count - 1];
+    disabledContent.classList.add("disabled");
   }
   e.target.disabled = false;
 }

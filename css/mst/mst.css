@@ -7,12 +7,12 @@ svg#mst circle {
   stroke: var(--content-normal-border-color);
 }
 
-svg#mst circle.target {
-  stroke: var(--content-target-border-color);
-}
-
 svg#mst circle.disabled {
   stroke: var(--content-disabled-border-color);
+}
+
+svg#mst circle.target {
+  stroke: var(--content-target-border-color);
 }
 
 svg#mst text {

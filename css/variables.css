@@ -3,72 +3,77 @@
   --home-background-image: url("/images/cool-background.png");
 
   /* Left Menu */
-  --navgation-background-color: violet;
+  --navgation-background-color: rgb(102, 102, 153);
 
-  --logo-font-color: orangered;
+  --menu-background-color: rgb(95, 158, 160, 0.5);
 
-  --menu-background-color: blanchedalmond;
-  --menu-background-color: rgb(255, 99, 71, 0.6);
-
-  --menu-hover-background-color: rgb(255, 99, 71, 0.8);
+  --menu-hover-background-color: rgb(95, 158, 160, 0.8);
 
   --menu-open-background-color: rgb(255, 255, 255, 0.6);
 
-  --subMenu-selected-background-color: burlywood;
+  --subMenu-selected-background-color: rgb(255, 255, 255, 0.6);
 
   --subMenu-hover-background-color: rgb(255, 255, 255, 0.8);
 
+  /* logo */
+  --logo-background-color: rgb(68, 215, 168);
+  --logo-font-color: rgb(8, 8, 8);
+
   /* header */
-  --header-background-color: #e2e2e2;
+  --header-background-color: rgb(226, 226, 226);
+
+  /* article - controller */
+  --controller-background-color: rgb(250, 235, 215);
 
   /* main - home */
-  --home-panel-backgound-color: aliceblue;
-  --home-item-background-color: rgb(2, 0, 36);
+  --home-panel-backgound-color: rgb(255, 255, 255);
+
+  --home-item-background-color: rgb(229, 228, 226);
   --home-item-background-color-second: rgb(0, 212, 255, 1);
-  --home-item-font-color: white;
+
+  --home-item-font-color: rgb(255, 255, 255);
+  --home-item-font-color-second: rgb(0, 33, 71);
 
   /* border */
-  --border-color-black: black;
+  --border-color-black: rgb(0, 0, 0);
 
   /* footer */
-  --footer-background-color: #2e2e2e;
-  --footer-infomation-color: white;
-  --footer-anchor-color: white;
+  --footer-background-color: rgb(46, 46, 46);
+  --footer-infomation-color: rgb(255, 255, 255);
+  --footer-anchor-color: rgb(220, 220, 220);
 
-  /* input */
-  --button-normal-background-color: red;
-  --button-normal-font-color: white;
+  /* input button */
+  --button-normal-background-color: rgb(0, 0, 56, 0.5);
+  --button-normal-font-color: rgb(240, 248, 255);
 
-  --button-normal-hover-background-color: blue;
-  --button-normal-hover-font-color: orange;
+  --button-normal-hover-background-color: rgb(0, 0, 56, 0.7);
+  --button-normal-hover-font-color: rgb(255, 255, 255, 0.7);
 
-  --button-normal-active-background-color: tomato;
-  --button-normal-active-font-color: gray;
+  --button-normal-active-background-color: rgb(0, 0, 56, 1);
+  --button-normal-active-font-color: rgb(255, 255, 255, 1);
 
-  --button-disabled-background-color: white;
-  --button-disabled-font-color: orange;
+  --button-disabled-background-color: rgb(0, 0, 56, 0.2);
+  --button-disabled-font-color: rgb(255, 255, 255, 0.2);
 
   /* content */
-  --content-background-color: yellow;
+  --content-background-color: rgb(245, 245, 245);
+  --content-font-color: rgb(0, 0, 0);
 
-  --content-normal-border-color: black;
+  --content-normal-border-color: rgb(0, 0, 0);
+  --path-normal-stroke-color: rgb(0, 0, 0);
 
-  --content-standard-border-color: violet;
+  --content-standard-border-color: rgb(0, 191, 255);
 
-  --content-compare-border-color: chartreuse;
+  --content-compare-border-color: rgb(244, 196, 48);
 
-  --content-target-border-color: tomato;
+  --content-selected-border-color: rgb(34, 139, 34);
 
-  --content-disabled-border-color: wheat;
+  --content-target-border-color: rgb(235, 0, 0);
+  --path-target-stroke-color: rgb(235, 0, 0);
 
-  --content-selected-border-color: rgb(8, 161, 231);
-
-  --path-normal-stroke-color: black;
-
-  --path-target-stroke-color: yellowgreen;
-
-  --content-font-color: black;
+  --content-disabled-border-color: rgb(186, 85, 211);
+  --content-font-disabled-color: rgb(0, 0, 0, 0.6);
 
   /* notification */
-  --notification-normal-background-color: lightsalmon;
+  --notification-normal-background-color: rgb(164, 0, 0);
 }
