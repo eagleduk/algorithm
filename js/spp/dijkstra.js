@@ -399,6 +399,18 @@ async function dijkstra(e) {
     for (let i = 0; i < targetLength; i++) {
       const targetID = targets[i];
       const [targetCircle, targetLabel] = contents[targetID];
+
+      const targetText = paths.querySelector(
+        `text#from${source}_to${targetID}_text.v${key}`
+      );
+      const targetValue = parseInt(targetText.innerHTML, 0);
+
+      if (
+        !isNaN(targetLabel.innerHTML) &&
+        parseInt(targetLabel.innerHTML) <= value + targetValue
+      )
+        continue;
+
       targetCircle.classList.add("compare");
 
       const targetPath = paths.querySelector(
@@ -407,11 +419,6 @@ async function dijkstra(e) {
       targetPath.setAttribute("class", `p${key} target`);
 
       await _timeout();
-
-      const targetText = paths.querySelector(
-        `text#from${source}_to${targetID}_text.v${key}`
-      );
-      const targetValue = parseInt(targetText.innerHTML, 0);
 
       if (isNaN(targetLabel.innerHTML)) {
         targetLabel.innerHTML = value + targetValue;
