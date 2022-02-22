@@ -11,13 +11,16 @@
   0% {
     transform: translateY(0px);
   }
-  25% {
+  /* 25% {
     transform: translateY(-17px);
   }
   75% {
     transform: translateY(17px);
+  } */
+  35% {
+    transform: translateY(-17px) rotateY(180deg);
   }
-  100% {
+  70% {
     transform: translateY(0px);
   }
 }
