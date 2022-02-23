@@ -279,14 +279,14 @@ a.logo:visited {
 details > summary:hover {
   background-color: var(--menu-hover-background-color);
 }
-
+/* 
 details > summary::after {
   content: url("/images/add_black_24dp.svg");
 }
 
 details[open] > summary::after {
   content: url("/images/remove_black_24dp.svg");
-}
+} */
 
 details[open] {
   background-color: var(--menu-open-background-color);
@@ -370,7 +370,7 @@ footer address {
   align-items: flex-start;
 }
 
-footer span {
+footer div span {
   color: var(--footer-infomation-color);
   font-size: 20px;
 }
