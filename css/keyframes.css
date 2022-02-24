@@ -18,6 +18,7 @@
     transform: translateY(17px);
   } */
   35% {
+    color: var(--logo-font-color-second);
     transform: translateY(-17px) rotateY(180deg);
   }
   70% {

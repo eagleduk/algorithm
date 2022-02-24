@@ -279,14 +279,14 @@ a.logo:visited {
 details > summary:hover {
   background-color: var(--menu-hover-background-color);
 }
-/* 
+
 details > summary::after {
   content: url("/images/add_black_24dp.svg");
 }
 
 details[open] > summary::after {
   content: url("/images/remove_black_24dp.svg");
-} */
+}
 
 details[open] {
   background-color: var(--menu-open-background-color);
@@ -313,6 +313,42 @@ ul.sub-menu li a {
   align-items: center;
 }
 
+.mini-screen-menu ul li {
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-screen-menu ul.sub-menu {
+  display: none;
+}
+
+.mini-screen-menu li:hover {
+  background-color: var(--menu-open-background-color);
+}
+
+.mini-screen-menu li:hover ul {
+  display: block;
+}
+
+.mini-screen-menu ul.sub-menu {
+  position: absolute;
+  left: 50px;
+  top: 0px;
+  list-style-type: none;
+}
+
+.mini-screen-menu ul.sub-menu li {
+  width: 200px;
+  display: block;
+  background-color: var(--menu-background-color);
+}
+
+ul.sub-menu li:hover {
+  background-color: var(--subMenu-hover-background-color);
+}
 /*
 *****************       input
 */

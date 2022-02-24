@@ -20,6 +20,7 @@
   /* logo */
   --logo-background-color: rgb(0, 150, 152);
   --logo-font-color: rgb(8, 8, 8);
+  --logo-font-color-second: red;
 
   /* header */
   --header-background-color: rgb(226, 226, 226);

@@ -36,151 +36,251 @@
                 <span>m</span>
             </a>
 
-            <details>
+            <div class="full-screen-menu">
+                <details>
 
-                <summary title="정렬">
-                    <span>
-                        Sorting
-                    </span>
-                    <img src="/images/icons/sort.png" alt="sorting" width="30">
-                </summary>
+                    <summary title="정렬">
+                        <span>
+                            Sorting
+                        </span>
+                    </summary>
 
-                <ul class="sub-menu">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/html/sort.html#bubble">
+                                <span>
+                                    Bubble
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/html/sort.html#selection">
+                                <span>
+                                    Selection
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/html/sort.html#insert">
+                                <span>
+                                    Insertion
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+
+                    <summary title="검색">
+                        <span>
+                            Search
+                        </span>
+                    </summary>
+
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/html/search.html#sequential">
+                                <span>
+                                    Sequential
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/html/search.html#binary">
+                                <span>
+                                    Binary
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/html/search.html#bfs">
+                                <span>
+                                    Breadth-first search
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/html/search.html#dfs">
+                                <span>
+                                    Depth-first search
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+
+                    <summary title="최단 경로">
+                        <span>
+                            Shortest Path
+                        </span>
+                    </summary>
+
+                    <ul class="sub-menu">
+                        <li id="dijkstra">
+                            <a href="/html/spp.html#dijkstra">
+                                <span>
+                                    Dijkstra
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+
+                    <summary title="최소 신장 트리">
+                        <span>
+                            Min Spanning Tree
+                        </span>
+                    </summary>
+
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/html/mst.html#kruskal">
+                                <span>
+                                    Kruskal
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/html/mst.html#prim">
+                                <span>
+                                    Prim
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </details>
+                <details style="display: none;">
+                    <summary>
+                        <span>
+                            Greedy
+                        </span>
+                    </summary>
+
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/html/greedy.html#greedy">
+                                <span>
+                                    Greedy
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="mini-screen-menu">
+                <ul>
                     <li>
-                        <a href="/html/sort.html#bubble">
-                            <span>
-                                Bubble
-                            </span>
-                        </a>
+                        <img src="/images/icons/sort.png" alt="sorting" width="30">
+
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="/html/sort.html#bubble">
+                                    <span>
+                                        Bubble
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/html/sort.html#selection">
+                                    <span>
+                                        Selection
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/html/sort.html#insert">
+                                    <span>
+                                        Insertion
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-
                     <li>
-                        <a href="/html/sort.html#selection">
-                            <span>
-                                Selection
-                            </span>
-                        </a>
+                        <img src="/images/icons/search.png" alt="search" width="30">
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="/html/search.html#sequential">
+                                    <span>
+                                        Sequential
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/html/search.html#binary">
+                                    <span>
+                                        Binary
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/html/search.html#bfs">
+                                    <span>
+                                        Breadth-first search
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/html/search.html#dfs">
+                                    <span>
+                                        Depth-first search
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-
                     <li>
-                        <a href="/html/sort.html#insert">
-                            <span>
-                                Insertion
-                            </span>
-                        </a>
+                        <img src="/images/icons/icons8-path-30.png" alt="Shortest Path" width="30">
+                        <ul class="sub-menu">
+                            <li id="dijkstra">
+                                <a href="/html/spp.html#dijkstra">
+                                    <span>
+                                        Dijkstra
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img src="/images/icons/neural.png" alt="Min Spanning Tree" width="30">
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="/html/mst.html#kruskal">
+                                    <span>
+                                        Kruskal
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/html/mst.html#prim">
+                                    <span>
+                                        Prim
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-            </details>
+            </div>
 
-            <details>
-
-                <summary title="검색">
-                    <span>
-                        Search
-                    </span>
-                    <img src="/images/icons/search.png" alt="search" width="30">
-                </summary>
-
-                <ul class="sub-menu">
-                    <li>
-                        <a href="/html/search.html#sequential">
-                            <span>
-                                Sequential
-                            </span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/html/search.html#binary">
-                            <span>
-                                Binary
-                            </span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/html/search.html#bfs">
-                            <span>
-                                Breadth-first search
-                            </span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/html/search.html#dfs">
-                            <span>
-                                Depth-first search
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </details>
-
-            <details>
-
-                <summary title="최단 경로">
-                    <span>
-                        Shortest Path
-                    </span>
-                    <img src="/images/icons/icons8-path-30.png" alt="Shortest Path" width="30">
-                </summary>
-
-                <ul class="sub-menu">
-                    <li id="dijkstra">
-                        <a href="/html/spp.html#dijkstra">
-                            <span>
-                                Dijkstra
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </details>
-
-            <details>
-
-                <summary title="최소 신장 트리">
-                    <span>
-                        Min Spanning Tree
-                    </span>
-                    <img src="/images/icons/neural.png" alt="Min Spanning Tree" width="30">
-                </summary>
-
-                <ul class="sub-menu">
-                    <li>
-                        <a href="/html/mst.html#kruskal">
-                            <span>
-                                Kruskal
-                            </span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/html/mst.html#prim">
-                            <span>
-                                Prim
-                            </span>
-                        </a>
-                    </li>
-
-                </ul>
-            </details>
-            <details style="display: none;">
-                <summary>
-                    <span>
-                        Greedy
-                    </span>
-                </summary>
-
-                <ul class="sub-menu">
-                    <li>
-                        <a href="/html/greedy.html#greedy">
-                            <span>
-                                Greedy
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </details>
         </nav>
 
         <div class="home">
@@ -254,7 +354,7 @@
                     </div>
 
                     <div>
-                        <a href="/html/spp.html">
+                        <a href="/html/spp.html#dijkstra">
                             <span>
                                 Dijkstra
                             </span>

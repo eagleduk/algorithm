@@ -3,20 +3,11 @@
   main {
     grid-template-columns: 280px 1fr;
   }
-  details summary span {
-    display: block;
-  }
-  details summary img {
+
+  main nav div.mini-screen-menu {
     display: none;
   }
 
-  details > summary::after {
-    content: url("/images/add_black_24dp.svg");
-  }
-
-  details[open] > summary::after {
-    content: url("/images/remove_black_24dp.svg");
-  }
   footer address a img {
     display: none;
   }
@@ -26,43 +17,18 @@
     grid-template-columns: 50px 1fr;
   }
 
+  main nav div.full-screen-menu {
+    display: none;
+  }
+
   a.logo span:not(:nth-child(2)) {
     display: none;
   }
 
-  details {
-    position: relative;
-  }
-
-  details summary span {
+  main div.home section div:first-child {
     display: none;
   }
 
-  details summary img {
-    display: block;
-  }
-
-  details > summary::after {
-    content: "";
-  }
-
-  details[open] > summary::after {
-    content: "";
-  }
-
-  ul.sub-menu {
-    position: absolute;
-    top: 0px;
-    left: 50px;
-    list-style-type: none;
-    width: 180px;
-    font-size: 10px;
-    background-color: var(--menu-background-color);
-  }
-
-  ul.sub-menu li a {
-    margin-left: 10px !important;
-  }
   footer address {
     align-items: flex-end !important;
     padding-right: 20px !important;

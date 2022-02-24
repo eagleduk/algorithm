@@ -15,11 +15,11 @@ document.querySelectorAll("details").forEach((element) => {
       });
     }
   });
-  element.addEventListener("mouseleave", (e) => {
-    if (e.target.open) {
-      e.target.open = false;
-    }
-  });
+  // element.addEventListener("mouseleave", (e) => {
+  //   if (e.target.open) {
+  //     e.target.open = false;
+  //   }
+  // });
 });
 
 document.querySelectorAll("div.home-index img").forEach((element) => {
