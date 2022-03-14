@@ -4,12 +4,12 @@ const ADDRESS = [
   {
     type: "mail",
     path: "eagleduk@gmail.com",
-    icon: "/images/email_white_24dp.svg",
+    icon: "/algorithm/images/email_white_24dp.svg",
   },
   {
     type: "github",
     path: "https://github.com/eagleduk",
-    icon: "/images/GitHub-Mark-Light-32px.png",
+    icon: "/algorithm/images/GitHub-Mark-Light-32px.png",
   },
 ];
 
@@ -24,8 +24,8 @@ const MODULES = [
   {
     key: "sort",
     title: "sorting",
-    icon: "/images/icons/sort.png",
-    page: "/html/sort.html",
+    icon: "/algorithm/images/icons/sort.png",
+    page: "/algorithm/html/sort.html",
     modules: [
       { title: "bubble", value: "bubble" },
       { title: "selection", value: "selection" },
@@ -35,8 +35,8 @@ const MODULES = [
   {
     key: "search",
     title: "search",
-    icon: "/images/icons/search.png",
-    page: "/html/search.html",
+    icon: "/algorithm/images/icons/search.png",
+    page: "/algorithm/html/search.html",
     modules: [
       { title: "sequential", value: "sequential" },
       { title: "binary", value: "binary" },
@@ -47,15 +47,15 @@ const MODULES = [
   {
     key: "spp",
     title: "shortest path",
-    icon: "/images/icons/icons8-path-30.png",
-    page: "/html/spp.html",
+    icon: "/algorithm/images/icons/icons8-path-30.png",
+    page: "/algorithm/html/spp.html",
     modules: [{ title: "dijkstra", value: "dijkstra" }],
   },
   {
     key: "mst",
     title: "min spanning tree",
-    icon: "/images/icons/neural.png",
-    page: "/html/mst.html",
+    icon: "/algorithm/images/icons/neural.png",
+    page: "/algorithm/html/mst.html",
     modules: [
       { title: "kruskal", value: "kruskal" },
       { title: "prim", value: "prim" },

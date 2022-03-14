@@ -3,14 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap");
 
-@import url("./variables.css");
-@import url("./media.css");
-@import url("./keyframes.css");
+@import url("/algorithm/css/variables.css");
+@import url("/algorithm/css/media.css");
+@import url("/algorithm/css/keyframes.css");
 
-@import url("./sort/sort.css");
-@import url("./search/search.css");
-@import url("./spp/spp.css");
-@import url("./mst/mst.css");
+@import url("/algorithm/css/sort/sort.css");
+@import url("/algorithm/css/search/search.css");
+@import url("/algorithm/css/spp/spp.css");
+@import url("/algorithm/css/mst/mst.css");
 
 /*
 *****************       Base Layout
