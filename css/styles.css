@@ -22,6 +22,8 @@
 
 html {
   /* min-width: 1480px; */
+  min-width: 730px;
+  min-height: 730px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -77,6 +79,7 @@ header {
   justify-content: flex-end;
   padding: 0 80px;
   box-sizing: border-box;
+  color: var(--header-color);
 }
 
 article {
@@ -281,11 +284,11 @@ details > summary:hover {
 }
 
 details > summary::after {
-  content: url("/images/add_black_24dp.svg");
+  content: url("/algorithm/images/add_white_24dp.svg");
 }
 
 details[open] > summary::after {
-  content: url("/images/remove_black_24dp.svg");
+  content: url("/algorithm/images/remove_white_24dp.svg");
 }
 
 details[open] {
@@ -316,6 +319,10 @@ ul.sub-menu li a {
 div.full-screen-menu span,
 div.mini-screen-menu span {
   text-transform: capitalize;
+}
+
+.mini-screen-menu img {
+  cursor: pointer;
 }
 
 .mini-screen-menu ul li {
